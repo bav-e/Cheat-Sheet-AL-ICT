@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 වන පාඩම: දත්ත නිරූපණය - Final Cheat Sheet</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans for Sinhala & Roboto Mono for code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for a compact, technical look with examples */
+        body {
+            font-family: 'Noto Sans Sinhala', sans-serif;
+            font-size: 12px; 
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        h1 { font-size: 20px; font-weight: 700; }
+        h2 { font-size: 16px; font-weight: 600; }
+        h3 { font-size: 14px; font-weight: 600; }
+        
+        code, .font-mono {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 11px;
+        }
+
+        .theory-example-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 8px 16px;
+        }
+
+        @media (min-width: 640px) { /* On screens larger than mobile */
+            .theory-example-grid {
+                 /* 55% for theory, 45% for example */
+                grid-template-columns: 55% 45%;
+            }
+        }
+
+        .example-box {
+            background-color: #f1f5f9; /* slate-100 */
+            border-left: 3px solid #64748b; /* slate-500 */
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                font-size: 9pt;
+                background-color: #fff;
+            }
+            .printable-card {
+                border: 1px solid #e2e8f0 !important; /* slate-200 */
+                page-break-inside: avoid;
+            }
+            .example-box {
+                background-color: #f1f5f9 !important;
+            }
+        }
+    </style>
+
+</head>
+<body class="p-4">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Main Header -->
+        <header class="text-center mb-6">
+            <h1>3 වන පාඩම: පරිගණකයේ දත්ත සහ උපදෙස් නිරූපණය</h1>
+            <p class="text-slate-500 mt-1 text-sm">Final Edition with Theory & Examples</p>
+        </header>
+
+        <!-- Main content grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+            <!-- Number Systems & Conversions Card -->
+            <section class="bg-white border border-slate-200 rounded-lg p-4 printable-card">
+                <h2 class="mb-1 border-b border-slate-200 pb-1">1. සංඛ්‍යා පද්ධති සහ පරිවර්තන</h2>
+                <p class="text-xs text-slate-500 italic mt-1 mb-2">
+                    *ඇයි Octal/Hex?: දිගු ද්වීමය සංඛ්‍යා, මිනිසුන්ට කියවීමට පහසු කෙටි ක්‍රමයක් ලෙස නිරූපණය කිරීමට යොදාගැනේ.
+                </p>
+
+                <div class="space-y-4">
+                    <!-- Decimal to Binary -->
+                    <div class="theory-example-grid">
+                        <div class="theory">
+                            <h3>දශම ➔ ද්වීමය (Decimal ➔ Binary)</h3>
+                            <p class="text-xs text-slate-600 mt-1">පූර්ණ සංඛ්‍යාව 2න් බෙදා, ශේෂයන් පහළ සිට ඉහළට ගන්න.</p>
+                        </div>
+                        <div class="example-box">
+                            <h4 class="font-semibold">උදා: 12₁₀ ➔ ?₂</h4>
+                            <code class="block mt-1">
+                                2 | 12 | 0 ↑<br>
+                                &nbsp;&nbsp;|--|--<br>
+                                &nbsp;&nbsp;| 6 | 0 |<br>
+                                &nbsp;&nbsp;|--|--<br>
+                                &nbsp;&nbsp;| 3 | 1 |<br>
+                                &nbsp;&nbsp;|--|--<br>
+                                &nbsp;&nbsp;| 1 | 1 |<br>
+                                &nbsp;&nbsp;-- <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;0<br>
+                                පිළිතුර: 1100₂
+                            </code>
+                        </div>
+                    </div>
+                     <!-- Binary to Decimal -->
+                    <div class="theory-example-grid">
+                        <div class="theory">
+                            <h3>ද්වීමය ➔ දශම (Binary ➔ Decimal)</h3>
+                            <p class="text-xs text-slate-600 mt-1">ස්ථානීය අගයන් (2ⁿ) ගුණ කර එකතු කරන්න.</p>
+                        </div>
+                        <div class="example-box">
+                            <h4 class="font-semibold">උදා: 1101₂ ➔ ?₁₀</h4>
+                            <code class="block mt-1">
+                                (1×2³)+(1×2²)+(0×2¹)+(1×2⁰)<br>
+                                = (1×8)+(1×4)+(0×2)+(1×1)<br>
+                                = 8 + 4 + 0 + 1<br>
+                                පිළිතුර: 13₁₀
+                            </code>
+                        </div>
+                    </div>
+                    <!-- Binary to Octal -->
+                    <div class="theory-example-grid">
+                        <div class="theory">
+                            <h3>ද්වීමය ➔ අෂ්ටමික (Binary ➔ Octal)</h3>
+                            <p class="text-xs text-slate-600 mt-1">දකුණේ සිට බිටු 3 බැගින් කාණ්ඩ කරන්න.</p>
+                        </div>
+                        <div class="example-box">
+                            <h4 class="font-semibold">උදා: 10011011₂ ➔ ?₈</h4>
+                            <code class="block mt-1">
+                                <span class="text-slate-400">0</span>10 | 011 | 011<br>
+                                &nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                                &nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;3<br>
+                                පිළිතුර: 233₈
+                            </code>
+                        </div>
+                    </div>
+                     <!-- Binary to Hex -->
+                    <div class="theory-example-grid">
+                        <div class="theory">
+                            <h3>ද්වීමය ➔ දෂාෂ්ටමික (Binary ➔ Hex)</h3>
+                            <p class="text-xs text-slate-600 mt-1">දකුණේ සිට බිටු 4 බැගින් කාණ්ඩ කරන්න.</p>
+                        </div>
+                        <div class="example-box">
+                             <h4 class="font-semibold">උදා: 11101100101001₂ ➔ ?₁₆</h4>
+                            <code class="block mt-1">
+                                <span class="text-slate-400">00</span>11 | 1011 | 0010 | 1001<br>
+                                &nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                                &nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9<br>
+                                පිළිතුර: 3B29₁₆
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Signed Numbers & Other Concepts Card -->
+            <section class="bg-white border border-slate-200 rounded-lg p-4 printable-card">
+                <h2 class="mb-2 border-b border-slate-200 pb-1">2. සෘණ සංඛ්‍යා සහ අනෙකුත් සංකල්ප</h2>
+                <div class="space-y-4 mt-3">
+                    <!-- Sign-Magnitude -->
+                    <div class="theory-example-grid">
+                        <div class="theory">
+                            <h3>ලකුණු-පරිමාණය (Sign-Mag)</h3>
+                            <p class="text-xs text-slate-600 mt-1">MSB (වම්ම බිටුව) ලකුණ සඳහායි. (0=ධන, 1=සෘණ).</p>
+                        </div>
+                        <div class="example-box">
+                             <h4 class="font-semibold">උදා: +5 සහ -5</h4>
+                             <code class="block mt-1">
+                                +5 = 00000101<br>
+                                -5 = 10000101
+                             </code>
+                        </div>
+                    </div>
+                     <!-- 1's Complement -->
+                    <div class="theory-example-grid">
+                        <div class="theory">
+                            <h3>1's Complement</h3>
+                            <p class="text-xs text-slate-600 mt-1">ධන අගයේ සියලු බිටු මාරු කරන්න (0➔1, 1➔0).</p>
+                        </div>
+                        <div class="example-box">
+                             <h4 class="font-semibold">උදා: -5</h4>
+                             <code class="block mt-1">
+                                +5&nbsp;&nbsp;= 00000101<br>
+                                -5&nbsp;&nbsp;= 11111010
+                             </code>
+                        </div>
+                    </div>
+                     <!-- 2's Complement -->
+                    <div class="theory-example-grid">
+                        <div class="theory">
+                            <h3>2's Complement</h3>
+                            <p class="text-xs text-slate-600 mt-1">1's Complement අගයට 1ක් එකතු කරන්න. <br><i class="text-slate-500">*ගණිත කර්ම සඳහා hardware සෑදීම පහසු නිසා බහුලව භාවිත වේ.</i></p>
+                        </div>
+                        <div class="example-box">
+                             <h4 class="font-semibold">උදා: -5</h4>
+                             <code class="block mt-1">
+                                1's Comp = 11111010<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
+                                2's Comp = 11111011
+                             </code>
+                        </div>
+                    </div>
+                    <!-- Other Concepts -->
+                    <div class="mt-4 pt-2 border-t border-slate-200">
+                        <ul class="space-y-1 text-slate-600 list-disc list-inside text-xs">
+                            <li><strong>MSB / LSB:</strong> Most/Least Significant Bit (වම්ම/දකුණුම බිටුව).</li>
+                            <li><strong>Fixed-Point:</strong> දශමස්ථානයෙන් පසු <span class="font-semibold">නියත</span> ඉලක්කම් ගණනකි (උදා: මුදල්). <i class="text-slate-500">වේගවත්, පරාසය සීමිතයි.</i></li>
+                            <li><strong>Floating-Point:</strong> දශමස්ථානය "පාවෙයි". ඉතා විශාල/කුඩා සංඛ්‍යා සඳහා. <i class="text-slate-500">වේගය අඩුයි, පරාසය විශාලයි.</i>
+                                <ul class="list-['-_'] list-inside ml-4">
+                                    <li><strong>සම්මතය:</strong> IEEE 754 (Single: 32-bit, Double: 64-bit)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Character Schemes & Binary Operations Card -->
+            <section class="bg-white border border-slate-200 rounded-lg p-4 printable-card lg:col-span-2">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                     <!-- Character Schemes -->
+                     <div>
+                        <h2 class="mb-2 border-b border-slate-200 pb-1">3. අක්ෂර නිරූපණ ක්‍රම</h2>
+                        <table class="w-full text-left mt-3">
+                            <thead class="bg-slate-50"><tr><th class="p-2">ක්‍රමය</th><th class="p-2">බිටු</th><th class="p-2">ලක්ෂණය</th></tr></thead>
+                            <tbody>
+                                <tr class="border-b border-slate-200"><td class="p-2 font-semibold">BCD</td><td class="p-2">4</td><td class="p-2">දශම ඉලක්කම් සඳහා පමණි.</td></tr>
+                                <tr class="border-b border-slate-200"><td class="p-2 font-semibold">ASCII</td><td class="p-2">7/8</td><td class="p-2">PC වල බහුලයි.</td></tr>
+                                <tr class="border-b border-slate-200"><td class="p-2 font-semibold">EBCDIC</td><td class="p-2">8</td><td class="p-2">IBM Mainframe සඳහා.</td></tr>
+                                <tr><td class="p-2 font-semibold">Unicode</td><td class="p-2">16/32</td><td class="p-2">සිංහල/දෙමළ ඇතුළු සියලු භාෂා.</td></tr>
+                            </tbody>
+                        </table>
+                     </div>
+                     <!-- Binary Operations -->
+                     <div>
+                        <h2 class="mb-2 border-b border-slate-200 pb-1">4. ද්වීමය මෙහෙයුම්</h2>
+                        <!-- Arithmetic -->
+                        <div class="theory-example-grid mt-3">
+                            <div class="theory">
+                                <h3>ගණිතමය (Arithmetic)</h3>
+                                <code class="text-xs mt-1 block">
+                                    0+0=0&nbsp;&nbsp;&nbsp;&nbsp;0-0=0<br>
+                                    0+1=1&nbsp;&nbsp;&nbsp;&nbsp;1-0=1<br>
+                                    1+0=1&nbsp;&nbsp;&nbsp;&nbsp;1-1=0<br>
+                                    1+1=0 (c 1)&nbsp;0-1=1 (b 1)
+                                </code>
+                            </div>
+                            <div class="example-box">
+                                <h4 class="font-semibold">උදා: 1011 + 1100</h4>
+                                <code class="block mt-1">
+                                    &nbsp;&nbsp;<span class="text-slate-400">11</span>&nbsp;&nbsp;&nbsp; (carry)<br>
+                                    &nbsp;&nbsp;1011<br>
+                                    + 1100<br>
+                                    ------<br>
+                                    &nbsp;10111
+                                </code>
+                            </div>
+                        </div>
+                        <!-- Logical -->
+                        <div class="theory-example-grid mt-3">
+                            <div class="theory">
+                                <h3>තාර්කික (Bitwise Logic)</h3>
+                                <p class="text-xs text-slate-600 mt-1">
+                                    <strong class="text-slate-800">AND</strong> - Bit Masking (බිටු ආවරණය)<br>
+                                    <strong class="text-slate-800">OR</strong> - Bit Setting (බිටු පිහිටුවීම)<br>
+                                    <strong class="text-slate-800">XOR</strong> - Bit Toggling (බිටු මාරු කිරීම)<br>
+                                    <strong class="text-slate-800">NOT</strong> - Inverting (ප්‍රතිවර්තනය)
+                                </p>
+                            </div>
+                            <div class="example-box">
+                                <h4 class="font-semibold">උදා: 0101 AND 0011</h4>
+                                <code class="block mt-1">
+                                    &nbsp;&nbsp;0101<br>
+                                    AND 0011<br>
+                                    ------<br>
+                                    &nbsp;&nbsp;0001
+                                </code>
+                            </div>
+                        </div>
+                     </div>
+                 </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
