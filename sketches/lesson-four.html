@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson 4: Logic Gates - Ultimate Cheat Sheet</title>
+   <!-- Tailwind CSS for styling -->
+   <script src="https://cdn.tailwindcss.com"></script>
+   <!-- Google Fonts: Inter for text & Roboto Mono for code -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet">
+   <style>
+      body {
+         font-family: 'Inter', sans-serif;
+         font-size: 12px;
+         background-color: #f8fafc;
+         color: #1e293b;
+      }
+
+      h1 {
+         font-size: 20px;
+         font-weight: 700;
+      }
+
+      h2 {
+         font-size: 16px;
+         font-weight: 600;
+         border-bottom: 1px solid #e2e8f0;
+         padding-bottom: 4px;
+         margin-bottom: 8px;
+      }
+
+      h3 {
+         font-size: 14px;
+         font-weight: 600;
+      }
+
+      code,
+      .font-mono {
+         font-family: 'Roboto Mono', monospace;
+         font-size: 11px;
+      }
+
+      .card {
+         background-color: white;
+         border: 1px solid #e2e8f0;
+         border-radius: 8px;
+         padding: 12px;
+      }
+
+      .reason {
+         font-size: 10px;
+         color: #64748b;
+         font-style: italic;
+      }
+
+      .gate-img {
+         vertical-align: middle;
+         height: 24px;
+         margin: 0 4px;
+      }
+
+      @media print {
+         body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            font-size: 9pt;
+            background-color: #fff;
+         }
+
+         .card {
+            page-break-inside: avoid;
+         }
+      }
+   </style>
+</head>
+
+<body class="p-4">
+
+   <div class="max-w-7xl mx-auto">
+      <header class="text-center mb-6">
+         <h1>Lesson 4: Logic Gates</h1>
+         <p class="text-slate-500 mt-1 text-sm">The Ultimate Cheat Sheet</p>
+      </header>
+
+      <main class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+         <!-- Column 1: Gates & Boolean Algebra -->
+         <div class="flex flex-col gap-4">
+            <!-- Gates Master Table Card -->
+            <section class="card">
+               <h2>I. Basic & Combinational Gates</h2>
+               <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs">
+                     <thead class="bg-slate-50">
+                        <tr>
+                           <th class="p-1">Gate</th>
+                           <th class="p-1 text-center">Symbol</th>
+                           <th class="p-1">Expression</th>
+                           <th class="p-1">Truth Table Summary</th>
+                        </tr>
+                     </thead>
+                     <tbody class="divide-y divide-slate-200">
+                        <tr>
+                           <td class="p-1 font-semibold">AND</td>
+                           <td class="p-1 text-center"><img src="https://placehold.co/50x24/ffffff/334155?text=AND"
+                                 alt="AND Gate" class="gate-img"></td>
+                           <td class="p-1"><code>X=A.B</code></td>
+                           <td class="p-1"><code>1 only if all are 1</code></td>
+                        </tr>
+                        <tr>
+                           <td class="p-1 font-semibold">OR</td>
+                           <td class="p-1 text-center"><img src="https://placehold.co/50x24/ffffff/334155?text=OR"
+                                 alt="OR Gate" class="gate-img"></td>
+                           <td class="p-1"><code>X=A+B</code></td>
+                           <td class="p-1"><code>0 only if all are 0</code></td>
+                        </tr>
+                        <tr>
+                           <td class="p-1 font-semibold">NOT</td>
+                           <td class="p-1 text-center"><img src="https://placehold.co/30x24/ffffff/334155?text=NOT"
+                                 alt="NOT Gate" class="gate-img"></td>
+                           <td class="p-1"><code>X=A'</code></td>
+                           <td class="p-1"><code>Inverts the input</code></td>
+                        </tr>
+                        <tr>
+                           <td class="p-1 font-semibold">NAND</td>
+                           <td class="p-1 text-center"><img src="https://placehold.co/50x24/ffffff/334155?text=NAND"
+                                 alt="NAND Gate" class="gate-img"></td>
+                           <td class="p-1"><code>X=(A.B)'</code></td>
+                           <td class="p-1"><code>Opposite of AND</code></td>
+                        </tr>
+                        <tr>
+                           <td class="p-1 font-semibold">NOR</td>
+                           <td class="p-1 text-center"><img src="https://placehold.co/50x24/ffffff/334155?text=NOR"
+                                 alt="NOR Gate" class="gate-img"></td>
+                           <td class="p-1"><code>X=(A+B)'</code></td>
+                           <td class="p-1"><code>Opposite of OR</code></td>
+                        </tr>
+                        <tr>
+                           <td class="p-1 font-semibold">XOR</td>
+                           <td class="p-1 text-center"><img src="https://placehold.co/50x24/ffffff/334155?text=XOR"
+                                 alt="XOR Gate" class="gate-img"></td>
+                           <td class="p-1"><code>X=A⊕B</code></td>
+                           <td class="p-1"><code>1 if inputs are different</code></td>
+                        </tr>
+                        <tr>
+                           <td class="p-1 font-semibold">XNOR</td>
+                           <td class="p-1 text-center"><img src="https://placehold.co/50x24/ffffff/334155?text=XNOR"
+                                 alt="XNOR Gate" class="gate-img"></td>
+                           <td class="p-1"><code>X=(A⊕B)'</code></td>
+                           <td class="p-1"><code>1 if inputs are the same</code></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </section>
+
+            <!-- Boolean Algebra Card -->
+            <section class="card">
+               <h2>II. Boolean Algebra</h2>
+               <p class="reason">*Why simplify?: To reduce the number of gates, cost, and complexity of the circuit.</p>
+               <ul class="text-xs space-y-1 mt-2 columns-2">
+                  <li><strong>Identity:</strong> A+0=A, A.1=A</li>
+                  <li><strong>Annulment:</strong> A+1=1, A.0=0</li>
+                  <li><strong>Idempotent:</strong> A+A=A, A.A=A</li>
+                  <li><strong>Complement:</strong> A+A'=1, A.A'=0</li>
+                  <li><strong>Double Neg.:</strong> (A')' = A</li>
+                  <li><strong>Commutative:</strong> A+B=B+A</li>
+                  <li><strong>Associative:</strong> A+(B+C)=(A+B)+C</li>
+                  <li><strong>Distributive:</strong> A(B+C)=AB+AC</li>
+                  <li><strong>Absorption:</strong> A+AB=A, A(A+B)=A</li>
+                  <li class="font-semibold"><strong>De
+                        Morgan's:</strong><br><code>(AB)'=A'+B'</code><br><code>(A+B)'=A'.B'</code></li>
+               </ul>
+            </section>
+         </div>
+
+         <!-- Column 2: K-Maps & Standard Forms -->
+         <div class="flex flex-col gap-4">
+            <!-- K-Maps Card -->
+            <section class="card">
+               <h2>III. Karnaugh Maps (K-Maps)</h2>
+               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                     <h3 class="mb-1">K-Map Rules:</h3>
+                     <ul class="text-xs space-y-1 list-disc list-inside">
+                        <li>Cannot group zeros.</li>
+                        <li>Groups must be a power of 2 (1, 2, 4, 8...).</li>
+                        <li>No diagonal groups.</li>
+                        <li>Make groups as large as possible.</li>
+                        <li>Groups can overlap.</li>
+                        <li>Wrap-around grouping is allowed.</li>
+                     </ul>
+                  </div>
+                  <div class="bg-slate-50 p-2 rounded">
+                     <h4 class="font-semibold text-xs">Example: F(A,B,C) = Σ(3,6,7)</h4>
+                     <img src="https://placehold.co/180x90/f1f5f9/334155?text=K-Map+Example"
+                        alt="K-Map Example with groups" class="w-full mt-1">
+                     <p class="text-xs mt-1">Group 1 (Red): AC</p>
+                     <p class="text-xs">Group 2 (Blue): BC'</p>
+                     <p class="font-semibold text-xs mt-1">Simplified: F = AC + BC'</p>
+                  </div>
+               </div>
+            </section>
+
+            <!-- SOP & POS Card -->
+            <section class="card">
+               <h2>IV. Standard Forms (SOP & POS)</h2>
+               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                  <div>
+                     <h3 class="font-semibold">Sum of Products (SOP)</h3>
+                     <p class="mt-1">A sum of Minterms where the truth table output is '1'.</p>
+                     <p class="mt-1">Ex: <code class="bg-slate-100 p-1 rounded">F = A'B + AB'</code></p>
+                     <p class="reason mt-1">*Used to build a circuit for the 'ON' conditions of a problem.</p>
+                  </div>
+                  <div class="mt-2 sm:mt-0">
+                     <h3 class="font-semibold">Product of Sums (POS)</h3>
+                     <p class="mt-1">A product of Maxterms where the truth table output is '0'.</p>
+                     <p class="mt-1">Ex: <code class="bg-slate-100 p-1 rounded">F = (A+B).(A'+B')</code></p>
+                     <p class="reason mt-1">*Used to build a circuit for the 'OFF' conditions of a problem.</p>
+                  </div>
+               </div>
+            </section>
+         </div>
+
+         <!-- Column 3: Universal Gates & Circuits -->
+         <div class="flex flex-col gap-4">
+            <!-- Universal Gates Card -->
+            <section class="card">
+               <h2>V. Universal Gates & Circuits</h2>
+               <p class="reason">*Why Universal?: NAND/NOR are easy and cheap to fabricate, so they are common in ICs.
+               </p>
+               <h3 class="mt-2 mb-1">Implementing other gates using NAND</h3>
+               <div class="space-y-2">
+                  <img src="https://placehold.co/250x80/ffffff/334155?text=Universal+Gate+Implementations"
+                     alt="Diagrams showing how to make NOT, AND, OR gates from NAND gates" class="w-full">
+               </div>
+            </section>
+
+            <!-- Circuits Card -->
+            <section class="card">
+               <h3 class="mb-1">Combinational Circuits (No Memory)</h3>
+               <div class="grid grid-cols-2 gap-4 text-xs mt-2">
+                  <div>
+                     <h4 class="font-semibold">Half Adder</h4>
+                     <p><strong>Sum:</strong> A ⊕ B</p>
+                     <p><strong>Carry:</strong> A . B</p>
+                     <img src="https://placehold.co/80x50/f1f5f9/334155?text=HA+Circuit"
+                        alt="Half Adder Circuit Diagram" class="mt-1">
+                  </div>
+                  <div>
+                     <h4 class="font-semibold">Full Adder</h4>
+                     <p><strong>Sum:</strong> A ⊕ B ⊕ C<sub>in</sub></p>
+                     <p><strong>Carry:</strong> AB + C<sub>in</sub>(A⊕B)</p>
+                     <img src="https://placehold.co/80x50/f1f5f9/334155?text=FA+Circuit"
+                        alt="Full Adder Circuit Diagram" class="mt-1">
+                  </div>
+               </div>
+               <h3 class="mt-3 mb-1">Sequential Circuits (Has Memory)</h3>
+               <div class="text-xs mt-2">
+                  <h4 class="font-semibold">Flip-Flop (Basic Memory Unit)</h4>
+                  <p>Used to store a single bit of memory. Ex: RS Latch.</p>
+                  <img src="https://placehold.co/120x60/f1f5f9/334155?text=RS+Latch" alt="RS Latch Circuit Diagram"
+                     class="mt-1">
+               </div>
+            </section>
+         </div>
+      </main>
+   </div>
+</body>
+
+</html>
