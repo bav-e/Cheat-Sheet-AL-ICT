@@ -2,10 +2,10 @@
 These are cheat sheets for every lesson in AL ICT syllabus, lesson 1 to 13
 
 * [x] Lesson 1: introduction 
-* \[ \] Lesson 2: Computer Architecture & Evolution
-* \[ \] Lesson 3: Number Systems
-* \[ \] Lesson 4: Logic gates
-* \[ \] Lesson 5: OS
+* [x] Lesson 2: Computer Architecture & Evolution
+* [x] Lesson 3: Number Systems
+* [x] Lesson 4: Logic gates
+* [x] Lesson 5: OS
 * \[ \] Lesson 6: 
 * \[ \] Lesson 7:  
 * \[ \] Lesson 8: 
