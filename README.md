@@ -1,7 +1,7 @@
 # Cheat-Sheet-AL-ICT
 These are cheat sheets for every lesson in AL ICT syllabus, lesson 1 to 13
 
-* \[ x \] Lesson 1: introduction 
+* [x] Lesson 1: introduction 
 * \[ \] Lesson 2: Computer Architecture & Evolution
 * \[ \] Lesson 3: Number Systems
 * \[ \] Lesson 4: Logic gates
