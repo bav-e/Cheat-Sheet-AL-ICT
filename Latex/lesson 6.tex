@@ -1,0 +1,169 @@
+% ====================================================================
+% A/L ICT - Lesson 6: Data Communication & Networking Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{tabularx}        % For better tables
+\usepackage{graphicx}        % To scale images/symbols if needed
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=2pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 6: Data Communication \& Networking}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. Physical Layer Concepts}
+\vspace{0.5em}
+\subsectionheading{Data Communication Model}
+\begin{itemize}
+    \item Sender $\rightarrow$ Message $\rightarrow$ Medium $\rightarrow$ Receiver $\rightarrow$ Protocol
+\end{itemize}
+\subsectionheading{Signal Properties}
+\begin{itemize}
+    \item \textbf{Types:} Analog (continuous) vs. Digital (discrete).
+    \item \textbf{Properties:} Amplitude, Frequency, Wavelength, Phase.
+    \item \textbf{Relationship:} \texttt{c = f * $\lambda$} (Speed = Freq * Wavelength)
+\end{itemize}
+\subsectionheading{Transmission Media}
+\begin{itemize}
+    \item \textbf{Guided:} Twisted Pair (UTP/STP), Coaxial, Fiber Optic.
+    \item \textbf{Unguided:} Radio Waves, Microwaves.
+\end{itemize}
+\subsectionheading{Signal Impairment}
+\begin{itemize}
+    \item \textbf{Latency:} Delay in data travel.
+    \item \textbf{Bandwidth:} Frequency range a medium can carry.
+    \item \textbf{Noise:} Unwanted signal interference.
+    \item \textbf{Attenuation:} Loss of signal strength over distance.
+    \item \textbf{Distortion:} Change in the signal's shape.
+\end{itemize}
+\subsectionheading{Modulation \& Encoding}
+\begin{itemize}
+    \item \textbf{Modulation:} AM, FM, PM, PCM (Pulse Code Modulation).
+    \item \textbf{Digital-to-Analog:} ASK, FSK, PSK.
+    \item \textbf{Digital Encoding:} Manchester encoding (aids synchronization).
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{2. Data Link Layer Concepts}
+\vspace{0.5em}
+\subsectionheading{Network Topologies}
+\begin{itemize}
+    \item Point-to-Point, Bus, Star, Ring, Mesh.
+\end{itemize}
+\subsectionheading{LAN Hardware}
+\begin{itemize}
+    \item \textbf{NIC:} Connects device to network.
+    \item \textbf{Hub:} Broadcasts data to all (Dumb).
+    \item \textbf{Switch:} Sends data to intended port (Intelligent).
+    \item \textbf{Bridge:} Connects two similar LANs.
+\end{itemize}
+\subsectionheading{Media Access Control (MAC)}
+\begin{itemize}
+    \item \textbf{MAC Address:} 48-bit unique hardware address (in 6 blocks).
+    \item \textbf{Frame:} Data unit at Data Link layer, contains MAC of \textit{next adjacent node}.
+    \item \textbf{Protocols:} Manage access to shared media (Evolution: ALOHA $\rightarrow$ Ethernet (CSMA/CD)).
+    \item \textbf{Error Control:} Parity Check (detects single-bit errors).
+\end{itemize}
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{3. Network \& Transport Layers}
+\vspace{0.5em}
+\subsectionheading{IP Addressing}
+\begin{itemize}
+    \item \textbf{Versions:} IPv4 (32-bit) vs. IPv6 (128-bit).
+    \item \textbf{IPv4 Classes:} A (1-126), B (128-191), C (192-223).
+    \item \textbf{Private IP Ranges:} \texttt{10.0.0.0/8}, \texttt{172.16.0.0/12}, \texttt{192.168.0.0/16}.
+    \item \textbf{Subnetting:} Dividing a large network into smaller sub-networks. Used with a \textbf{Subnet Mask}.
+    \item \textbf{CIDR Notation:} e.g., /24.
+\end{itemize}
+\subsectionheading{Internetworking Hardware}
+\begin{itemize}
+    \item \textbf{Router:} Connects different networks, finds the best path.
+    \item \textbf{Gateway:} Connects networks using different protocols.
+\end{itemize}
+\subsectionheading{Core Internet Concepts}
+\begin{itemize}
+    \item \textbf{Packet Switching:} Messages broken into small packets.
+    \item \textbf{Best-Effort Delivery:} Network doesn't guarantee packet delivery.
+\end{itemize}
+\subsectionheading{Transport Layer Protocols}
+\begin{itemize}
+    \item \textbf{Ports \& Multiplexing:} How multiple apps use the network at once.
+    \item \textbf{UDP (User Datagram Protocol):} Connectionless, no delivery guarantee. (Fast; for DNS, streaming).
+    \item \textbf{TCP (Transmission Control Protocol):} Reliable, connection-oriented, ordered delivery. (Slower; for web, email).
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{4. Application, Security & Connectivity}
+\vspace{0.5em}
+\subsectionheading{Reference Models}
+\begin{itemize}
+    \item \textbf{OSI (7 Layers):} Conceptual model (Physical, Data Link, Network, Transport, Session, Presentation, Application).
+    \item \textbf{TCP/IP (4 Layers):} Practical model used on the internet.
+\end{itemize}
+\subsectionheading{Application Layer Services}
+\begin{itemize}
+    \item \textbf{DHCP:} Automatically assigns IP addresses.
+    \item \textbf{DNS:} Translates domain names (with TLDs like .com, .lk) to IP addresses.
+    \item \textbf{NAT/Proxy:} Allows private IPs to access the internet.
+\end{itemize}
+\subsectionheading{Connectivity}
+\begin{itemize}
+    \item \textbf{ISP:} Provides internet access.
+    \item \textbf{DSL/ADSL:} Broadband over phone lines. (Advantages: Independent service, more secure than cable).
+    \item \textbf{Modem:} Converts signals for different media.
+\end{itemize}
+\subsectionheading{Network Security}
+\begin{itemize}
+    \item \textbf{Encryption:} Symmetric (one key) vs. Asymmetric (public/private keys).
+    \item \textbf{Digital Signature:} Authenticates sender \& message integrity.
+    \item \textbf{Threats:} Viruses, Trojans, Malware, Phishing.
+    \item \textbf{Protection:} Firewalls, Antivirus software.
+\end{itemize}
+
+\end{multicols}
+\end{document}
