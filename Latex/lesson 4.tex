@@ -1,0 +1,160 @@
+% ====================================================================
+% A/L ICT - Lesson 4: Logic Gates & Boolean Algebra Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+% 'extarticle' allows for smaller font sizes like 8pt.
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1.2cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{amsmath}         % For math symbols and equations
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{tabularx}        % For better tables
+\usepackage{amssymb}         % For additional math symbols like \oplus
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, % Light gray background for boxes
+  colframe=gray!75, % Darker gray border
+  boxrule=0.5pt,
+  sharp corners,
+  boxsep=4pt,
+  left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 4: Logic Gates \& Boolean Algebra}
+\end{center}
+\vspace{1em}
+
+% --- Main 3-Column Layout ---
+\begin{multicols}{3}
+
+% --- COLUMN 1: THE LOGIC GATE LEXICON ---
+\sectionheading{1. Logic Gates}
+\vspace{0.5em}
+
+\begin{tabularx}{\linewidth}{|l|c|X|X|}
+\hline
+\textbf{Gate} & \textbf{Symbol} & \textbf{Expression} & \textbf{Trigger} \\
+\hline
+NOT  & \includegraphics[height=0.8em]{not.png} & $L = \overline{A}$ & Inverter \\ \hline
+AND  & \includegraphics[height=1.2em]{and.png} & $L = A \cdot B$ & All inputs must be 1 \\ \hline
+OR   & \includegraphics[height=1.2em]{or.png} & $L = A + B$ & At least one input is 1 \\ \hline
+NAND & \includegraphics[height=1.2em]{nand.png} & $L = \overline{A \cdot B}$ & Opposite of AND \\ \hline
+NOR  & \includegraphics[height=1.2em]{nor.png} & $L = \overline{A + B}$ & Opposite of OR \\ \hline
+XOR  & \includegraphics[height=1.2em]{xor.png} & $L = A \oplus B$ & Inputs must be different \\ \hline
+XNOR & \includegraphics[height=1.2em]{xnor.png} & $L = \overline{A \oplus B}$ & Inputs must be the same \\ \hline
+\end{tabularx}
+
+\vspace{1em}
+\begin{tcolorbox}
+  \subsectionheading{Universal Gates}
+  \vspace{0.25em}
+  \textit{NAND} and \textit{NOR} are universal because they can create any other logic gate. They are economical and easy to fabricate.
+\end{tcolorbox}
+\columnbreak % End Column 1, Start Column 2
+
+% --- COLUMN 2: THE SIMPLIFICATION TOOLKIT ---
+\sectionheading{2. Boolean Algebra \& Simplification}
+\vspace{0.5em}
+
+\subsectionheading{Boolean Laws}
+\begin{multicols}{2}
+\begin{itemize}
+    \item \textbf{Idempotent:} $A+A=A$
+    \item \textbf{Identity:} $A+0=A$
+    \item \textbf{Inverse:} $A+\overline{A}=1$
+    \item \textbf{Commutative:} $A+B=B+A$
+    \item \textbf{Associative:} $A+(B+C)=(A+B)+C$
+    \item \textbf{Distributive:} $A(B+C)=AB+AC$
+    \item \textbf{Redundancy:} $A+\overline{A}B=A+B$
+\end{itemize}
+\columnbreak
+\begin{itemize}
+    \item \textbf{Idempotent:} $A \cdot A=A$
+    \item \textbf{Identity:} $A \cdot 1=A$
+    \item \textbf{Inverse:} $A \cdot \overline{A}=0$
+    \item \textbf{Commutative:} $A \cdot B=B \cdot A$
+    \item \textbf{Associative:} $A(BC)=(AB)C$
+    \item \textbf{De Morgan's:} $\overline{A \cdot B}=\overline{A}+\overline{B}$
+    \item \textbf{De Morgan's:} $\overline{A+B}=\overline{A} \cdot \overline{B}$
+\end{itemize}
+\end{multicols}
+
+\subsectionheading{Standard Forms}
+\begin{itemize}
+    \item \textbf{SOP (Sum of Products):} Sum of AND terms. (e.g., $AB + BC$)
+    \item \textbf{POS (Product of Sums):} Product of OR terms. (e.g., $(A+B)(B+C)$)
+\end{itemize}
+
+\subsectionheading{Karnaugh Map (K-Map) Rules}
+\begin{enumerate}
+    \item Groups must contain $2^n$ cells (1, 2, 4, 8...).
+    \item Groups can be horizontal or vertical, \underline{not} diagonal.
+    \item Groups should be as large as possible.
+    \item All '1's must be in at least one group.
+    \item Groups can overlap.
+    \item Wrap-around grouping is allowed.
+    \item Aim for the fewest number of groups possible.
+\end{enumerate}
+\columnbreak % End Column 2, Start Column 3
+
+% --- COLUMN 3: PRACTICAL APPLICATIONS ---
+\sectionheading{3. Practical Applications}
+\vspace{0.5em}
+
+\subsectionheading{Half Adder}
+\begin{itemize}
+    \item \textbf{Purpose:} Adds 2 bits.
+    \item \textbf{Outputs:} Sum, Carry.
+    \item \textbf{Expressions:} 
+        \begin{itemize}
+            \item[] $Sum = A \oplus B$
+            \item[] $Carry = A \cdot B$
+        \end{itemize}
+    \item \textbf{Logic Circuit:} An XOR gate for the Sum and an AND gate for the Carry.
+\end{itemize}
+
+\vspace{1em}
+\subsectionheading{Full Adder}
+\begin{itemize}
+    \item \textbf{Purpose:} Adds 3 bits (A, B, $C_{in}$).
+    \item \textbf{Outputs:} Sum, $C_{out}$.
+    \item \textbf{Expressions:}
+        \begin{itemize}
+            \item[] $Sum = A \oplus B \oplus C_{in}$
+            \item[] $C_{out} = A \cdot B + C_{in}(A \oplus B)$
+        \end{itemize}
+    \item \textbf{Logic Circuit:} Can be built with two Half Adders and an OR gate.
+\end{itemize}
+
+\vspace{1em}
+\begin{tcolorbox}
+  \subsectionheading{Flip-Flop}
+  \vspace{0.25em}
+  The basic building block of memory. It is a circuit that can \textbf{store} a single bit (0 or 1).
+\end{tcolorbox}
+
+\end{multicols}
+\end{document}
