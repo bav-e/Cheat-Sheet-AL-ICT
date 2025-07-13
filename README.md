@@ -6,8 +6,8 @@ These are cheat sheets for every lesson in AL ICT syllabus, lesson 1 to 13
 * [x] Lesson 3: Number Systems
 * [x] Lesson 4: Logic gates
 * [x] Lesson 5: OS
-* \[ \] Lesson 6: 
-* \[ \] Lesson 7:  
+* [x] Lesson 6: Networking
+* [x] Lesson 7: SDLC
 * \[ \] Lesson 8: 
 * \[ \] Lesson 9: 
 * \[ \] Lesson 10:
