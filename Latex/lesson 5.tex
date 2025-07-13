@@ -1,0 +1,145 @@
+% ====================================================================
+% A/L ICT - Lesson 5: Operating Systems Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1.2cm, top=1.5cm, bottom=1.5cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{tikz}            % For diagrams (like process states)
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=2pt}
+\setlist[enumerate]{leftmargin=*, noitemsep, topsep=2pt}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 5: Operating Systems}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1: INTRO & RESOURCE MGMT ---
+% =============================================
+
+\sectionheading{1. Introduction to the OS}
+\vspace{0.5em}
+\begin{itemize}
+    \item \textbf{Definition:} System software acting as an intermediary between user/apps and hardware.
+    \item \textbf{Main Goals:} Provide a Virtual Machine (hides complexity), Manage resources, Execute applications.
+\end{itemize}
+
+\subsectionheading{Evolution Timeline}
+\begin{itemize}
+    \item \textbf{No OS:} Serial Processing.
+    \item \textbf{Simple Batch Systems:} Used tapes, improved CPU use.
+    \item \textbf{Multi-programmed:} Multiple programs in memory.
+    \item \textbf{Time-Sharing:} Interactive, uses context switching.
+\end{itemize}
+
+\subsectionheading{OS Classification}
+\begin{itemize}
+    \item \textbf{By Tasking:} Single-user/Single-task, Single-user/Multi-task, Multi-user/Multi-task.
+    \item \textbf{Multi-threading:} Improves performance by parallel execution of \textit{sub-processes}.
+    \item \textbf{Real-Time (RTOS):} For systems needing precise timing and high reliability (e.g., industrial control).
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{4. Memory \& Device Management}
+\vspace{0.5em}
+
+\subsectionheading{Memory Management}
+\begin{itemize}
+    \item \textbf{Virtual Memory:} Using the disk as an extension of RAM, allowing programs to be larger than physical memory.
+    \item \textbf{Paging:} Dividing logical memory into \textbf{pages} and physical memory into \textbf{frames}. Can cause \textit{Internal Fragmentation}.
+    \item \textbf{MMU (Memory Management Unit):} The hardware that translates virtual addresses to physical addresses.
+\end{itemize}
+
+\subsectionheading{Device Management}
+\begin{itemize}
+    \item \textbf{Device Driver:} A specific software that acts as a translator between the OS and a hardware device.
+    \item \textbf{Spooling (Simultaneous Peripheral Operations On-Line):} Using a buffer (on disk) to hold jobs for a slow device like a printer, freeing up the CPU.
+\end{itemize}
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2: PROCESS & FILE MGMT ---
+% =============================================
+
+\sectionheading{2. Process \& Scheduling Mgmt}
+\vspace{0.5em}
+\begin{itemize}
+    \item \textbf{Process vs. Program:} A \texttt{Program} is passive code; a \texttt{Process} is a "program in execution".
+    \item \textbf{Process Types:} \textit{I/O Bound} (spends more time on I/O) vs. \textit{Processor Bound} (spends more time on CPU).
+    \item \textbf{Process States:} New $\rightarrow$ Ready $\leftrightarrow$ Running $\rightarrow$ Terminated. Running $\leftrightarrow$ Blocked. \textit{(7-state model adds Ready/Suspend \& Blocked/Suspend states)}.
+    \item \textbf{PCB (Process Control Block):} The "ID Card" for a process. Contains: State, ID, Program Counter, CPU Registers, etc.
+    \item \textbf{Context Switching:} Saving one process's state (to its PCB) and loading another's to share the CPU.
+    \item \textbf{Interrupt:} A signal that pauses the CPU to handle an event.
+\end{itemize}
+
+\subsectionheading{Schedulers  & Policies}
+\begin{tcolorbox}[title=\textbf{Scheduler Comparison}]
+\begin{itemize}
+    \item \textbf{Long-term:} Admits jobs, controls degree of multiprogramming.
+    \item \textbf{Short-term:} Selects next process for CPU. Fastest.
+    \item \textbf{Medium-term:} Swaps processes to/from memory.
+\end{itemize}
+\end{tcolorbox}
+\begin{itemize}
+    \item \textbf{Policies:} \textit{Non-preemptive} (process runs until it stops) vs. \textit{Preemptive} (OS can force a stop).
+    \item \textbf{Metrics:} Turnaround Time, Response Time, Throughput, Waiting Time.
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{3. File \& Storage Management}
+\vspace{0.5em}
+\begin{itemize}
+    \item \textbf{File Views:} \textit{Logical} (user's view) vs. \textit{Physical} (OS's view on disk).
+    \item \textbf{File Attributes:} Name, Type, Owner, Access Permissions, Date.
+    \item \textbf{File Systems:}
+        \begin{itemize}
+            \item \textbf{FAT:} Older, simple.
+            \item \textbf{NTFS:} Modern. Advantages: Auto error recovery, Unicode support, Security, Large disk support.
+        \end{itemize}
+    \item \textbf{Storage Allocation Methods:}
+        \begin{itemize}
+            \item \textbf{Contiguous:} One single block. \textit{Pro: Fast. Con: External Fragmentation.}
+            \item \textbf{Linked:} Blocks scattered, linked by pointers. \textit{Pro: No external fragmentation. Con: Slow random access.}
+            \item \textbf{Indexed:} An "index block" points to all data blocks.
+        \end{itemize}
+    \item \textbf{Disk Formatting:} \textit{Low-level} (basic medium prep) vs. \textit{High-level} (creating a file system).
+    \item \textbf{Defragmentation:} Rearranging fragmented files back into a continuous block to improve performance.
+\end{itemize}
+
+\end{multicols}
+
+\end{document}
