@@ -1,0 +1,161 @@
+% ====================================================================
+% A/L ICT - Lesson 11: Embedded Systems & IoT Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Based on the final revised plan.
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{tabularx}        % For better tables
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 11: Embedded Systems \& IoT}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. The "Thing" - Embedded Systems \& Arduino}
+\vspace{0.5em}
+\subsectionheading{Core Concepts}
+\begin{itemize}
+    \item \textbf{Embedded System:} A computer system inside a larger system. Also known as \textbf{Physical Computing}.
+    \item \textbf{IPO Model:} Input (Sensors) $\rightarrow$ Process (Microcontroller) $\rightarrow$ Output (Actuators).
+    \item \textbf{Microcontroller vs. Microprocessor:} A microcontroller is a single chip with integrated CPU, memory, and I/O. A microprocessor-based system has these as separate components.
+    \item \textbf{IEEE Definition:} A computer system that is part of a larger system and performs some of its requirements.
+\end{itemize}
+
+\subsectionheading{The Development Board: Arduino Uno}
+\begin{itemize}
+    \item \textbf{Key Features:} USB Port (for programming/power), Analog Pins (A0-A5), Microcontroller (ATmega328P), Digital I/O Pins (0-13).
+\end{itemize}
+
+\subsectionheading{The Software: Arduino IDE}
+\begin{itemize}
+    \item Arduino programs are called \textbf{Sketches}.
+    \item \textbf{IDE Components:} Verify, Upload, Code Editor, Console Window.
+\end{itemize}
+
+\subsectionheading{Firmware Structure \& Logic}
+\begin{itemize}
+    \item Must have two main functions: \texttt{void setup()} (runs once) and \texttt{void loop()} (runs over and over).
+    \item An \textbf{endless loop} is used because there is no OS to return control to.
+\end{itemize}
+
+\subsectionheading{Commonly Used Components (Practicals)}
+\begin{itemize}
+    \item \textbf{Outputs:} LED, Piezo Buzzer, DC Motor.
+    \item \textbf{Inputs:} LDR, LM35 Temp Sensor, Reed Switch.
+    \item \textbf{Other:} Resistor (\texttt{220$\Omega$}, \texttt{10k$\Omega$}), Transistor (\texttt{BC547}), Diode (\texttt{1N4001}).
+\end{itemize}
+
+\begin{tcolorbox}[title=\textbf{Core Arduino Functions}]
+    \begin{itemize}
+        \item \texttt{pinMode(pin, MODE);} - Sets pin as \texttt{INPUT} or \texttt{OUTPUT}.
+        \item \texttt{digitalWrite(pin, STATE);} - Sets pin to \texttt{HIGH} or \texttt{LOW}.
+        \item \texttt{digitalRead(pin);} - Reads state (\texttt{HIGH}/\texttt{LOW}) from pin.
+        \item \texttt{analogRead(pin);} - Reads value (0-1023) from analog pin.
+        \item \texttt{delay(ms);} - Pauses program for milliseconds.
+        \item \texttt{tone(pin, frequency);} - Generates a sound tone.
+        \item \texttt{noTone(pin);} - Stops the tone.
+        \item \texttt{Serial.begin(baudRate);} - Starts serial communication.
+    \end{itemize}
+\end{tcolorbox}
+
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{2. The "Network" - Practical IoT with Arduino}
+\vspace{0.5em}
+\subsectionheading{Core Concepts}
+\begin{itemize}
+    \item \textbf{IoT Definition:} A network of interconnected embedded systems communicating over the Internet.
+    \item \textbf{Goal:} To create a "Smart World" for convenience and comfort.
+\end{itemize}
+
+\subsectionheading{Building an IoT Device (Smart Light Example)}
+\begin{itemize}
+    \item \textbf{Key Hardware:} \textbf{Arduino Ethernet Shield} - an add-on module for internet connectivity.
+    \item \textbf{Important:} When the Ethernet Shield is used, digital pins 4, 10, 11, 12, and 13 are reserved and cannot be used for other purposes.
+\end{itemize}
+
+\begin{tcolorbox}[title=\textbf{Core IoT/Ethernet Functions}]
+    \begin{itemize}
+        \item \texttt{\#include <Ethernet2.h>} - Include library at the start.
+        \item \texttt{byte mac[] = \{...\};} - Holds the shield's MAC address.
+        \item \texttt{EthernetServer s(80);} - Creates a server on port 80.
+        \item \textbf{In \texttt{setup()}:}
+        \begin{itemize}
+            \item \texttt{Ethernet.begin(mac);} - Connects to network (DHCP).
+            \item \texttt{Serial.println(Ethernet.localIP());} - Displays IP address.
+            \item \texttt{server.begin();} - Starts the web server.
+        \end{itemize}
+        \item \textbf{In \texttt{loop()}:}
+        \begin{itemize}
+            \item \texttt{EthernetClient c = s.available();} - Checks for a client.
+            \item \texttt{c.connected()} - Checks if client is still connected.
+            \item \texttt{c.read()} - Reads data sent from the client.
+            \item \texttt{c.stop()} - Disconnects the client.
+        \end{itemize}
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{1em}
+\sectionheading{3. Applications \& Implications}
+\vspace{0.5em}
+\subsectionheading{Example Systems (from Practical Book)}
+\begin{itemize}
+    \item \textbf{Blinker:} Blinks an LED at a regular interval.
+    \item \textbf{AutoLight:} Controls an LED based on LDR light intensity.
+    \item \textbf{AutoFan:} Controls a motor based on LM35 temperature.
+    \item \textbf{Door-Alarm:} Triggers a buzzer using a reed switch.
+    \item \textbf{Smart Light (IoT):} Controls an LED remotely via HTTP.
+\end{itemize}
+
+\subsectionheading{Social \& Security Consequences}
+\begin{itemize}
+    \item Social Isolation.
+    \item \textbf{Security \& Privacy:} Risk of unauthorized control of devices and access to personal data.
+\end{itemize}
+
+
+\end{multicols}
+\end{document}
