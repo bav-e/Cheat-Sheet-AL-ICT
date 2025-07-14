@@ -1,0 +1,170 @@
+% ====================================================================
+% A/L ICT - Lesson 9: Algorithms & Python Programming Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Based on the final revised plan.
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{tabularx}        % For better tables
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 9: Algorithms \& Python Programming}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. The "Thinking" Phase}
+\vspace{0.5em}
+\subsectionheading{Problem Solving & Design}
+\begin{itemize}
+    \item \textbf{Problem Solving Cycle:} Define $\rightarrow$ Generate Ideas $\rightarrow$ Evaluate $\rightarrow$ Implement.
+    \item \textbf{Modularization:} Breaking a big problem into smaller sub-problems.
+    \item \textbf{Methodologies:} Top-down design \& Stepwise refinement.
+    \item \textbf{Structure Charts:} Visualize the modular breakdown of a system.
+\end{itemize}
+
+\subsectionheading{Algorithms}
+\begin{itemize}
+    \item \textbf{Definition:} A finite sequence of well-defined instructions.
+    \item \textbf{Representations:}
+    \begin{itemize}
+        \item \textbf{Flowcharts:} Diagrammatic representation. Key symbols: Terminator, Process, I/O, Decision.
+        \item \textbf{Pseudo-code:} High-level, human-readable description.
+    \end{itemize}
+    \item \textbf{Core Constructs:} Sequence, Selection, Repetition.
+    \item \textbf{Verification:} \textbf{Hand Trace} (manually stepping through logic).
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{2. The "Setup" Phase}
+\vspace{0.5em}
+\subsectionheading{Programming Paradigms}
+\begin{itemize}
+    \item \textbf{Imperative:} Describes \textit{how} to get a result.
+        \begin{itemize}
+            \item \textit{Sub-types:} Procedural (C), Object-Oriented (Java), Parallel.
+        \end{itemize}
+    \item \textbf{Declarative:} Describes \textit{what} result you want.
+        \begin{itemize}
+            \item \textit{Sub-types:} Logic (Prolog), Functional (Lisp), Database (SQL).
+        \end{itemize}
+\end{itemize}
+
+\subsectionheading{Program Translation}
+\begin{itemize}
+    \item \textbf{Source Code} (human-readable) vs. \textbf{Object Code} (machine-readable).
+    \item \textbf{Language Hierarchy:} Hardware $\rightarrow$ Machine $\rightarrow$ Assembly $\rightarrow$ High-level.
+    \item \textbf{Translators:}
+    \begin{itemize}
+        \item \textbf{Compiler:} Translates the \textit{entire} source code at once.
+        \item \textbf{Interpreter:} Translates and executes \textit{line-by-line}.
+        \item \textbf{Hybrid Approach:} Combines both (like Python).
+    \end{itemize}
+    \item \textbf{Linker:} Connects user code with standard library functions.
+\end{itemize}
+
+\subsectionheading{IDE (Integrated Development Environment)}
+\begin{itemize}
+    \item A software suite combining an \textbf{Editor}, \textbf{Compiler/Interpreter}, and a \textbf{Debugger}.
+\end{itemize}
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{3. The "Coding" Phase: Python Core}
+\vspace{0.5em}
+\subsectionheading{Basics}
+\begin{itemize}
+    \item \textbf{Comments:} Start with \texttt{\#}.
+    \item \textbf{Indentation:} Defines code blocks/scope (crucial).
+    \item \textbf{Variables:} Named storage. No explicit declaration needed.
+    \item \textbf{Data Types:} \texttt{int}, \texttt{float}, \texttt{str}, \texttt{bool}.
+    \item \textbf{Type Casting:} \texttt{int()}, \texttt{float()}, \texttt{str()}.
+    \item \textbf{I/O:} \texttt{input()} (from keyboard), \texttt{print()} (to screen).
+\end{itemize}
+\subsectionheading{Operators & Precedence}
+\begin{itemize}
+    \item \textbf{Categories:} Arithmetic (\texttt{+, *, /, \%, //, **}), Assignment (\texttt{=, +=}), Comparison (\texttt{==, !=, >}), Logical (\texttt{and, or, not}).
+    \item \textbf{Precedence (Simplified):} ( ) $\rightarrow$ \texttt{**} $\rightarrow$ \texttt{*, /} $\rightarrow$ \texttt{+, -} $\rightarrow$ Comparison $\rightarrow$ \texttt{not} $\rightarrow$ \texttt{and} $\rightarrow$ \texttt{or}.
+\end{itemize}
+\subsectionheading{Control Structures}
+\begin{itemize}
+    \item \textbf{Selection:} \texttt{if...elif...else}.
+    \item \textbf{Repetition:}
+    \begin{itemize}
+        \item \texttt{for item in sequence:} (for known iterations).
+        \item \texttt{while condition:} (for unknown iterations).
+    \end{itemize}
+    \item \textbf{Loop Control:} \texttt{break} (exit loop), \texttt{continue} (skip to next iteration).
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{4. The "Advanced" Phase: Python}
+\vspace{0.5em}
+\subsectionheading{Sub-programs (Functions)}
+\begin{itemize}
+    \item \textbf{Define:} \texttt{def function\_name(parameter):}
+    \item \textbf{Return Value:} \texttt{return} statement.
+    \item \textbf{Scope:} \textbf{Global} (outside function) vs. \textbf{Local} (inside function).
+\end{itemize}
+\subsectionheading{Core Data Structures}
+\begin{tcolorbox}
+\begin{itemize}
+    \item \textbf{List \texttt{[]}:} Ordered, \textbf{changeable}. \textit{Methods: .append(), .insert(), .remove(), .sort()}.
+    \item \textbf{Tuple \texttt{()}:} Ordered, \textbf{unchangeable}.
+    \item \textbf{Dictionary \texttt{\{\}}:} Unordered, changeable collection of \texttt{key:value} pairs. \textit{Methods: .keys(), .values(), .pop()}.
+\end{itemize}
+\end{tcolorbox}
+\subsectionheading{File & Database Handling}
+\begin{itemize}
+    \item \textbf{File Handling:} \texttt{open()} with modes (\texttt{"r", "w", "a"}), \texttt{.read()}, \texttt{.write()}, \texttt{.close()}. Use \texttt{os.remove()} to delete.
+    \item \textbf{DB Connectivity:} Use a "connector" library to \texttt{import}, create a \texttt{cursor}, \texttt{execute} SQL, and \texttt{commit} changes.
+\end{itemize}
+\subsectionheading{Basic Algorithms in Python}
+\begin{itemize}
+    \item \textbf{Searching:} \textbf{Sequential Search} (linear scan).
+    \item \textbf{Sorting:} \textbf{Bubble Sort} (compares \& swaps adjacent items).
+    \item \textbf{Swapping:} \texttt{a, b = b, a}.
+\end{itemize}
+
+\end{multicols}
+\end{document}
