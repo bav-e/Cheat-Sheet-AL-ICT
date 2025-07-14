@@ -1,0 +1,167 @@
+% ====================================================================
+% A/L ICT - Lesson 8: Database Design & Development Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% ERD-Focused. Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{graphicx}        % To scale images/symbols if needed
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 8: Database Design \& Development}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. Database Fundamentals}
+\vspace{0.5em}
+\begin{itemize}
+    \item \textbf{Core Concepts:} Data vs. Information; Structured vs. Unstructured Data.
+    \item \textbf{Database:} An organized collection of structured information.
+    \item \textbf{Database Models (Evolution):}
+    \begin{itemize}
+        \item \textbf{Flat-file:} Simple text files. \textit{Problem: High redundancy.}
+        \item \textbf{Hierarchical:} Tree-like structure (one-to-many).
+        \item \textbf{Network:} Graph-like structure (many-to-many).
+        \item \textbf{Relational:} Modern standard; data in tables.
+        \item \textbf{Object-Relational:} Combines Relational + OO concepts.
+    \end{itemize}
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{2. Conceptual Design (ER & EER)}
+\vspace{0.5em}
+\subsectionheading{ER Diagrams (The Blueprint)}
+\begin{itemize}
+    \item \textbf{Entity:} A real-world object. (\textit{Symbol: Rectangle})
+    \item \textbf{Attribute:} A property of an entity. (\textit{Symbol: Oval})
+    \item \textbf{Key Attribute:} An underlined attribute.
+    \item \textbf{Relationship:} How entities are connected. (\textit{Symbol: Diamond})
+\end{itemize}
+\subsectionheading{Relationship Cardinality}
+\begin{itemize}
+    \item \textbf{One-to-One (1:1)}
+    \item \textbf{One-to-Many (1:M)}
+    \item \textbf{Many-to-Many (M:M)}
+\end{itemize}
+\subsectionheading{EER (Extended ER) Diagrams}
+\begin{itemize}
+    \item Used for more complex designs involving \textbf{specialization} and \textbf{generalization}.
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{4. Essential SQL Commands}
+\vspace{0.5em}
+\begin{tcolorbox}[title=\textbf{SQL Sub-languages}]
+    \begin{itemize}
+        \item \textbf{DDL (Data Definition Language):} Defines the structure.
+        \item \textbf{DML (Data Manipulation Language):} Manages the data.
+    \end{itemize}
+\end{tcolorbox}
+\subsectionheading{Essential DDL Commands}
+\begin{itemize}
+    \item \texttt{CREATE TABLE}
+    \item \texttt{ALTER TABLE}
+    \item \texttt{DROP TABLE}
+\end{itemize}
+\subsectionheading{Essential DML Commands}
+\begin{itemize}
+    \item \texttt{INSERT INTO ... VALUES ...}
+    \item \texttt{UPDATE ... SET ... WHERE ...}
+    \item \texttt{DELETE FROM ... WHERE ...}
+\end{itemize}
+\subsectionheading{The Core \texttt{SELECT} Query}
+\begin{itemize}
+    \item \texttt{SELECT} cols \texttt{FROM} table \texttt{WHERE} condition
+    \item \textit{Key Clauses:} \texttt{ORDER BY}, \texttt{GROUP BY}, \texttt{INNER JOIN}
+\end{itemize}
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{3. Logical Design & Normalization}
+\vspace{0.5em}
+\subsectionheading{Relational Schema (The Plan)}
+\begin{itemize}
+    \item \textbf{Relation:} Table
+    \item \textbf{Tuple:} Row / Record
+    \item \textbf{Attribute:} Column / Field
+\end{itemize}
+\subsectionheading{Key Types (The Rules)}
+\begin{itemize}
+    \item \textbf{Candidate Key:} Can uniquely identify a row.
+    \item \textbf{Primary Key (PK):} The chosen candidate key. \textit{Cannot be NULL, must be UNIQUE.}
+    \item \textbf{Alternate Key:} A candidate key that was \underline{not} chosen as the PK.
+    \item \textbf{Foreign Key (FK):} A PK from one table used in another to create a link.
+\end{itemize}
+
+\subsectionheading{Normalization (Quality Control)}
+\begin{itemize}
+    \item \textbf{Purpose:} To reduce \textbf{data redundancy} and avoid \textbf{anomalies} (errors during Insert, Update, Delete).
+\end{itemize}
+\begin{tcolorbox}[title=\textbf{Functional Dependencies}]
+\begin{itemize}
+    \item \textbf{Partial Dependency:} A non-key attribute depends on only a \textit{part} of a composite PK.
+    \item \textbf{Transitive Dependency:} A non-key attribute depends on \textit{another non-key attribute}.
+\end{itemize}
+\end{tcolorbox}
+\subsectionheading{The Normal Forms}
+\begin{itemize}
+    \item \textbf{1NF (First Normal Form):}
+    \begin{itemize}
+        \item No repeating groups.
+        \item All values must be atomic (indivisible).
+    \end{itemize}
+    \item \textbf{2NF (Second Normal Form):}
+    \begin{itemize}
+        \item Must be in 1NF.
+        \item \underline{No} partial dependencies.
+    \end{itemize}
+    \item \textbf{3NF (Third Normal Form):}
+    \begin{itemize}
+        \item Must be in 2NF.
+        \item \underline{No} transitive dependencies.
+    \end{itemize}
+\end{itemize}
+
+\end{multicols}
+\end{document}
