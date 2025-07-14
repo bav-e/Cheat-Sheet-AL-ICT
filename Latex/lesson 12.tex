@@ -1,0 +1,169 @@
+% ====================================================================
+% A/L ICT - Lesson 12: ICT for Business Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Based on the final revised plan.
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{tabularx}        % For better tables
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 12: ICT for Business}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. The Digital Marketplace \& Business Models}
+\vspace{0.5em}
+\subsectionheading{Digital Economy \& Business Transformation}
+\begin{itemize}
+    \item \textbf{Digital Economy:} An economy based on digital computing technologies, driven by the Internet.
+    \item \textbf{Information Systems (IS):} The key ICT-based tool for business transformation.
+    \item \textbf{Types of IS:}
+    \begin{itemize}
+        \item \textbf{TPS:} Transaction Processing Systems (e.g., a sale).
+        \item \textbf{Decision Support:} \texttt{MIS}, \texttt{DSS}, \texttt{ESS}.
+    \end{itemize}
+\end{itemize}
+
+\subsectionheading{Business Models in the Digital Economy}
+\begin{itemize}
+    \item \textbf{New Methods:} Reverse Auctions, Group Purchasing, e-Marketplace.
+    \item \textbf{Organization Types:} Pure Brick, Brick and Click, Pure Click.
+\end{itemize}
+
+\subsectionheading{Role of ICT in Business Functions}
+\begin{itemize}
+    \item \textbf{Accounting}, \textbf{HR} (\texttt{HRIS}, self-service portals), \textbf{Production} (Industry 4.0), \textbf{Marketing}, \textbf{SCM} (Inter-organizational systems), \textbf{Communication} (Teleworking).
+\end{itemize}
+
+\subsectionheading{Secure Payment Mechanisms}
+\begin{itemize}
+    \item \textbf{Payment Gateway:} Securely handles credit card verification.
+    \item \textbf{Third-party Systems:} e.g., PayPal (mediates payment).
+    \item \textbf{Mechanisms:} Data Encryption.
+    \item \textbf{Currencies:} Virtual and Crypto (e.g., Bitcoin).
+\end{itemize}
+
+\subsectionheading{Threats and Opportunities}
+\begin{itemize}
+    \item Privacy, Security, Product Commercialization.
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{3. E-Marketing \& Competitive Advantage}
+\vspace{0.5em}
+\subsectionheading{E-marketing}
+\begin{itemize}
+    \item Using the internet for marketing (promotions, PR, support).
+    \item \textbf{Use of ICT:} Web Advertising, Data Mining.
+\end{itemize}
+
+\subsectionheading{Mobile Marketing}
+\begin{itemize}
+    \item A form of e-marketing via mobile devices.
+    \item \textbf{Location-Based Services:}
+    \begin{itemize}
+        \item \textbf{Geosocial:} Find people with similar interests nearby.
+        \item \textbf{Geoadvertising:} Target users in a specific location.
+        \item \textbf{Geoinformation:} Provide info about a location.
+    \end{itemize}
+\end{itemize}
+
+\subsectionheading{Database Marketing}
+\begin{itemize}
+    \item A direct marketing technique using customer databases.
+    \item Uses data mining to create customer profiles for personalized offers.
+\end{itemize}
+
+\subsectionheading{Gaining Competitive Advantages through ICT}
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{2. E-Commerce \& E-Business Operations}
+\vspace{0.5em}
+\subsectionheading{E-Commerce vs. E-Business}
+\begin{itemize}
+    \item \textbf{E-Business:} Broader concept. Includes all internal and external electronic business processes.
+    \begin{itemize}
+        \item \textbf{Architecture:} Often via \textbf{ERP} systems, integrating modules (Sales, Finance) with a central \textbf{Corporate Database}.
+    \end{itemize}
+    \item \textbf{E-Commerce:} A subset of E-Business, focusing on buying and selling online.
+\end{itemize}
+
+\subsectionheading{Types of E-Commerce Transactions}
+\begin{tcolorbox}
+\begin{itemize}
+    \item \textbf{B2B:} Business-to-Business
+    \item \textbf{B2C:} Business-to-Consumer
+    \item \textbf{C2C:} Consumer-to-Consumer
+    \item \textbf{C2B:} Consumer-to-Business
+    \item \textbf{B2E:} Business-to-Employee
+    \item \textbf{G2C:} Government-to-Citizen
+\end{itemize}
+\end{tcolorbox}
+
+\subsectionheading{Internet and Business (E-Commerce Components)}
+\begin{itemize}
+    \item \textbf{Virtual Storefronts:} Online shop display.
+    \item \textbf{Information Brokers:} Filter information for consumers.
+    \item \textbf{Online Marketplace:} Platform for multiple sellers (e.g., eBay).
+    \item \textbf{Content Provider:} Offers digital content (e.g., iTunes).
+    \item \textbf{Online Service Provider:} Offers services (e.g., Google).
+    \item \textbf{Portal:} Entry point to e-commerce (e.g., Yahoo).
+    \item \textbf{Virtual Community:} Online social networks.
+\end{itemize}
+
+\subsectionheading{Advantages and Disadvantages of E-Commerce}
+\begin{itemize}
+    \item \textit{(Briefly list key pros and cons based on syllabus understanding)}
+\end{itemize}
+
+\subsectionheading{E-Commerce Trends}
+\begin{itemize}
+    \item Becoming more social, mobile-based (\texttt{m-commerce}), etc.
+\end{itemize}
+
+
+\end{multicols}
+\end{document}
