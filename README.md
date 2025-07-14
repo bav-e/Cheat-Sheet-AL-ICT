@@ -13,4 +13,4 @@ These are cheat sheets for every lesson in AL ICT syllabus, lesson 1 to 13
 * [x] Lesson 10: Web Development 
 * [x] Lesson 11: Internet of Things
 * [x] Lesson 12: ICT in Business
-* \[ \] Lesson 13: New trends
+* [x] Lesson 13: New trends

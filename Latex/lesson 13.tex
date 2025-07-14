@@ -1,0 +1,143 @@
+% ====================================================================
+% A/L ICT - Lesson 13: New Trends and Future Directions of ICT
+% Optimized for A4 B&W Printing using LaTeX
+% Based on the final revised plan.
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{tabularx}        % For better tables
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 13: New Trends and Future Directions of ICT}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. "The Thinking Machine" - AI}
+\vspace{0.5em}
+\subsectionheading{Intelligent and Emotional Computing}
+\begin{itemize}
+    \item The concept of machines that can think and perceive emotions.
+\end{itemize}
+
+\subsectionheading{Artificial Intelligence (AI)}
+\begin{itemize}
+    \item \textbf{Definition:} The simulation of human intelligence processes by machines.
+    \item \textbf{Strong AI (AGI):} An AI system that can think and have a mind, capable of working in multiple fields. (Theoretical).
+    \item \textbf{Weak AI (Narrow AI):} An AI system that only pretends to think, excelling in a single, narrow task. \textit{Ex: IBM Deep Blue (Chess)}.
+\end{itemize}
+
+\begin{tcolorbox}[title=\textbf{Key AI Techniques}]
+    \begin{itemize}
+        \item \textbf{Search Techniques:} Finding a goal state in a state space.
+        \item \textbf{Expert Systems:} Rule-based (If-Then) systems that store knowledge to advise humans.
+        \item \textbf{NLP:} Algorithms to recognize/understand human languages.
+        \item \textbf{Machine Learning:} Techniques to learn hidden patterns from data.
+        \item \textbf{Neural Networks:} A key ML technique based on artificial neurons.
+        \item \textbf{Genetic Algorithms:} Optimization based on evolution.
+        \item \textbf{Fuzzy Logic:} Control systems based on "fuzzy" linguistic statements (e.g., 'hot') instead of binary true/false.
+    \end{itemize}
+\end{tcolorbox}
+
+\subsectionheading{Coexistence}
+\begin{itemize}
+    \item \textbf{Man-Machine:} Humans and intelligent machines working together.
+    \item \textbf{Machine-to-Machine:} Intelligent machines communicating and acting without human intervention.
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{3. "Future Computing" - Beyond von Neumann}
+\vspace{0.5em}
+\subsectionheading{Beyond von-Neumann Computer}
+\begin{itemize}
+    \item \textbf{Reason:} Traditional architecture is reaching physical limits (e.g., heat), as described by Moore's Law.
+\end{itemize}
+
+\subsectionheading{Nature-Inspired Computing}
+\begin{itemize}
+    \item Algorithms modeled on natural phenomena.
+    \item \textbf{Examples:} Genetic Algorithms, Neural Networks, \textbf{Swarm Intelligence} (ant colonies), \textbf{Membrane Computing} (living cells).
+\end{itemize}
+
+\subsectionheading{Bio-Inspired Computing}
+\begin{itemize}
+    \item Computing models based on biological systems (e.g., DNA, the brain). Closely related to Nature-Inspired Computing.
+\end{itemize}
+
+\subsectionheading{Quantum Computing}
+\begin{itemize}
+    \item \textbf{Fundamentals:} Based on quantum mechanics, using Qubits which can be in a state of \textbf{Superposition}.
+    \item \textbf{Applications:} Solving complex problems, drug discovery, materials science.
+\end{itemize}
+
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{2. "The Autonomous Agent" - Agent Technology}
+\vspace{0.5em}
+\subsectionheading{Software Agents}
+\begin{itemize}
+    \item \textbf{Definition:} Software that acts on behalf of a user/program, working autonomously and continuously.
+    \item \textbf{Characteristics:} Autonomous, Proactive, Reactive, Cooperative, Able to learn, Social ability.
+\end{itemize}
+
+\subsectionheading{Multi-Agent Systems (MAS)}
+\begin{itemize}
+    \item \textbf{Definition:} A system of multiple interacting agents solving a complex problem.
+    \item \textbf{Characteristics:} Agents are autonomous, have a \textbf{local view} (only know their part), and are \textbf{decentralized}.
+    \item \textbf{Common Architecture:} 
+    \begin{itemize}
+        \item \textbf{Interface Agent:} Connects user to the system.
+        \item \textbf{Broker Agent:} Filters information.
+        \item \textbf{Information Agents:} Gather data from sources.
+    \end{itemize}
+\end{itemize}
+
+\subsectionheading{Applications of Agent Systems}
+\begin{itemize}
+    \item Virtual assistants (Siri, Cortana), e-commerce search, online booking systems.
+\end{itemize}
+
+
+\end{multicols}
+\end{document}
