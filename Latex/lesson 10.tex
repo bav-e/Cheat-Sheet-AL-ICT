@@ -1,0 +1,137 @@
+% ====================================================================
+% A/L ICT - Lesson 10: Web Development Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Based on the final revised plan.
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{tabularx}        % For better tables
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 10: Web Development (HTML, CSS, PHP)}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1: FRONTEND DEVELOPMENT ---
+% =============================================
+
+\sectionheading{1. Frontend Development (HTML \& CSS)}
+\vspace{0.5em}
+\subsectionheading{HTML Core Structure \& Tags}
+\begin{itemize}
+    \item \textbf{Basic Structure:} \texttt{<!DOCTYPE html>}, \texttt{<html>}, \texttt{<head>}, \texttt{<title>}, \texttt{<body>}.
+    \item \textbf{Comments:} \texttt{<!-- comment -->}.
+    \item \textbf{Text Formatting:} \texttt{<h1>-<h6>}, \texttt{<p>}, \texttt{<br>}, \texttt{<b>}, \texttt{<i>}, \texttt{<u>}.
+    \item \textbf{Links:} \texttt{<a href="url">Link Text</a>}.
+    \item \textbf{Images:} \texttt{<img src="path" alt="text">}.
+    \item \textbf{Lists:} \texttt{<ul>} (Unordered), \texttt{<ol>} (Ordered), \texttt{<li>} (List Item).
+    \item \textbf{Tables:} 
+        \begin{itemize}
+            \item \textit{Core:} \texttt{<table>}, \texttt{<tr>}, \texttt{<th>}, \texttt{<td>}.
+            \item \textit{Structure:} \texttt{<thead>}, \texttt{<tbody>}, \texttt{<tfoot>}.
+            \item \textit{Merging:} \texttt{colspan}, \texttt{rowspan}.
+        \end{itemize}
+    \item \textbf{Multimedia:} \texttt{<audio>}, \texttt{<video>} with \texttt{src} attribute.
+\end{itemize}
+
+\subsectionheading{CSS Core Concepts}
+\begin{itemize}
+    \item \textbf{Syntax:} \texttt{selector \{ property: value; \}}.
+    \item \textbf{Selectors:} Element (\texttt{p}), Class (\texttt{.name}), ID (\texttt{\#name}).
+    \item \textbf{Insertion Methods:}
+        \begin{itemize}
+            \item \textbf{Inline:} \texttt{style} attribute in an HTML tag.
+            \item \textbf{Internal:} \texttt{<style>} tag in the \texttt{<head>}.
+            \item \textbf{External:} \texttt{<link>} tag or \texttt{@import} directive.
+        \end{itemize}
+    \item \textbf{Common Properties:} \texttt{color}, \texttt{font-size}, \texttt{font-family}, \texttt{background-color}, \texttt{margin}, \texttt{padding}, \texttt{border}.
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{3. Publishing \& Key Concepts}
+\vspace{0.5em}
+\begin{itemize}
+    \item \textbf{Website Types:} Static vs. Dynamic.
+    \item \textbf{Core Concepts:} Client-Server Model, URL Components (protocol, domain, path).
+    \item \textbf{Publishing:} Local vs. Internet.
+    \item \textbf{Key Terms:} ISP, Web Hosting, Domain Name.
+    \item \textbf{Maintenance:} Importance of regular backups, security updates, and monitoring site statistics.
+    \item \textbf{Authoring Tools:} Software like Dreamweaver can auto-generate code.
+\end{itemize}
+
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2: BACKEND DEVELOPMENT ---
+% =============================================
+
+\sectionheading{2. Backend Development (PHP \& MySQL)}
+\vspace{0.5em}
+\subsectionheading{PHP Basics}
+\begin{itemize}
+    \item \textbf{Embedding:} \texttt{<?php ... ?>}.
+    \item \textbf{Variables \& Output:} \texttt{\$variable = "value";}, \texttt{echo \$variable;}.
+    \item \textbf{Comments:} \texttt{//} (single-line), \texttt{/* ... */} (multi-line).
+    \item \textbf{Control Structures:} \texttt{if...elseif...else}, \texttt{switch}, \texttt{while}, \texttt{do...while}, \texttt{for}.
+    \item \textbf{Array Sorting:} Functions like \texttt{sort()}, \texttt{rsort()}, \texttt{asort()} (by value), \texttt{ksort()} (by key).
+\end{itemize}
+
+\subsectionheading{HTML Forms (User to Server Bridge)}
+\begin{itemize}
+    \item \textbf{Main Tag:} \texttt{<form action="..." method="post|get">}.
+    \item \textbf{GET vs. POST:} GET sends data in URL; POST hides it in the request body.
+    \item \textbf{Input Elements:} \texttt{<input type="text">}, \texttt{"password"}, \texttt{"radio"}, \texttt{"checkbox"}, \texttt{"submit"}.
+    \item \textbf{Other Elements:} \texttt{<textarea>}, \texttt{<select>}, \texttt{<label>}, \texttt{<fieldset>}.
+\end{itemize}
+
+\subsectionheading{PHP \& MySQL (Database Connection)}
+\begin{tcolorbox}[title=\textbf{Typical DB Operation Flow (Procedural)}]
+    \begin{enumerate}
+        \item \texttt{\$link = mysqli\_connect(...);} \textit{// Establish connection}
+        \item \texttt{\$sql = "INSERT INTO ...";} \textit{// Formulate SQL query}
+        \item \texttt{mysqli\_query(\$link, \$sql);} \textit{// Execute query}
+        \item \texttt{\$row = \$result->fetch\_assoc();} \textit{// Process results (for SELECT)}
+        \item \texttt{mysqli\_close(\$link);} \textit{// Close connection}
+    \end{enumerate}
+\end{tcolorbox}
+\begin{itemize}
+    \item \textbf{Retrieving Form Data:} Use superglobals \texttt{\$\_POST['input\_name']} or \texttt{\$\_GET['input\_name']}.
+\end{itemize}
+
+\end{multicols}
+\end{document}
