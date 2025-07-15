@@ -1,0 +1,212 @@
+% ====================================================================
+% A/L ICT - Lesson 3: Data Representation & Logic (Full Page Version)
+% Optimized for A4 B&W Printing, Single Page
+% Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=0.9cm, top=1cm, bottom=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}
+\usepackage[svgnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tabularx}
+
+% --- Font Setup ---
+\usepackage{fontspec}
+\setmainfont{Inter}[
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic
+]
+\newfontfamily{\headingfont}{Montserrat}[
+  UprightFont = *-SemiBold,
+  BoldFont = *-Bold
+]
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{%
+  \par\vspace{0.7em}
+  {\headingfont\fontsize{10.5pt}{11.5pt}\selectfont\color{black}#1}\par\nopagebreak
+  \rule{\linewidth}{0.4pt}\vspace{0.2em}\nopagebreak
+}
+\newcommand{\subsectionheading}[1]{%
+  \par\vspace{0.4em}\nopagebreak
+  {\headingfont\fontsize{9pt}{10pt}\selectfont\color{black!80}#1}\par\nopagebreak\vspace{-0.3em}
+}
+
+% --- tcolorbox configuration ---
+\tcbset{
+  colback=white, colframe=black, boxrule=0.5pt,
+  sharp corners, boxsep=3pt, left=4pt, right=4pt, top=3pt, bottom=3pt,
+  fonttitle=\bfseries\small,
+  arc=1mm
+}
+
+% --- List configuration ---
+\setlist[itemize,1]{leftmargin=*, noitemsep, topsep=1.5pt, label=\textbullet}
+\setlist[itemize,2]{leftmargin=*, noitemsep, topsep=1pt, label=--}
+\setlist[itemize,3]{leftmargin=*, noitemsep, topsep=1pt, label=$\rightarrow$}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty}
+
+% --- Title ---
+\begin{center}
+    {\headingfont\fontsize{12pt}{14pt}\selectfont \textbf{Lesson 3: Data Representation \& Logic}}
+\end{center}
+\vspace{-0.8em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1: Concepts & Character Codes ---
+% =============================================
+
+\sectionheading{1. Number Representation Concepts}
+\subsectionheading{Core Ideas}
+\begin{itemize}
+    \item \textbf{Why different systems?} Binary is for computers; Octal \& Hex are human-friendly shortcuts for long binary strings.
+    \item \textbf{MSB/LSB:} Most/Least Significant Bit. The bit with the highest/lowest place value.
+\end{itemize}
+
+\subsectionheading{Signed Integers (Representing +/-)}
+\begin{itemize}
+    \item \textbf{Sign-Magnitude:} Left-most bit is the sign (0=+, 1=-). Simple, but has two zeros (+0, -0) and makes arithmetic complex.
+    \item \textbf{One's Complement:} Negate by flipping all bits (0s to 1s, 1s to 0s). Still has two zeros.
+    \item \textbf{Two's Complement:} Flip all bits + 1. The standard for computers because it has only one zero and makes subtraction hardware simple (subtraction becomes addition).
+\end{itemize}
+
+\subsectionheading{Decimal Number Representation}
+\begin{itemize}
+    \item \textbf{Fixed-point:} For numbers with a fixed number of decimal places (e.g., currency \$123.45). Simple \& fast. Limited range.
+    \item \textbf{Floating-point:} For scientific numbers (very large/small). More flexible range, but more complex.
+        \begin{itemize}
+            \item \textbf{Structure:} Sign bit | Exponent | Mantissa.
+            \item \textbf{IEEE 754 Standard:}
+                \begin{itemize}
+                    \item \textbf{Single Precision (32-bit):} 1 Sign, 8 Exp, 23 Man.
+                    \item \textbf{Double Precision (64-bit):} 1 Sign, 11 Exp, 52 Man.
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+\sectionheading{2. Character Representation}
+\subsectionheading{Character Codes \& Comparison}
+\begin{itemize}
+    \item \textbf{BCD (Binary Coded Decimal):}
+        \begin{itemize}
+            \item Represents only numbers 0-9 (4-bit).
+            \item \textit{Pro: Easy decimal conversion. Con: Wastes space.}
+        \end{itemize}
+    \item \textbf{ASCII (American Standard...):}
+        \begin{itemize}
+            \item 7-bit (128 chars). Standard for English \& PCs.
+            \item \textit{Pro: Widely compatible. Con: Limited characters.}
+        \end{itemize}
+    \item \textbf{EBCDIC (Extended BCD...):}
+        \begin{itemize}
+            \item 8-bit (256 chars). Used mainly by IBM Mainframes. Not compatible with ASCII's letter ordering.
+        \end{itemize}
+    \item \textbf{Unicode:}
+        \begin{itemize}
+            \item 16/32-bit. Represents all world languages.
+            \item \textit{Pro: Universal standard. Con: Uses more memory than ASCII.}
+        \end{itemize}
+\end{itemize}
+
+\sectionheading{3. Arithmetic \& Logic}
+\subsectionheading{Binary Arithmetic}
+\begin{itemize}
+    \item \textbf{Addition Rules:} \texttt{0+0=0, 0+1=1, 1+1=0 carry 1}.
+    \item \textbf{Subtraction Rules:} \texttt{1-1=0, 1-0=1, 0-0=0, 0-1=1 borrow 1}.
+\end{itemize}
+\subsectionheading{Bitwise Logic Operations}
+\begin{itemize}
+    \item \textbf{NOT:} Inverts bits (\texttt{NOT 1100 -> 0011}).
+    \item \textbf{AND:} Masks bits (keeps bits set in \textbf{both}).
+    \item \textbf{OR:} Sets bits (keeps bits set in \textbf{either}).
+    \item \textbf{XOR:} Toggles bits (keeps bits that \textbf{differ}).
+\end{itemize}
+
+\columnbreak
+
+% =============================================
+% --- COLUMN 2: Rules & Examples ---
+% =============================================
+\sectionheading{4. Number Conversion Examples}
+
+\begin{tcolorbox}[title=Decimal $\rightarrow$ Binary (Integer)]
+\textbf{Rule:} Divide by 2, read remainders up. \\
+\textbf{Ex: Convert $43_{10}$ to Binary}
+\begin{verbatim}
+43 / 2 = 21 R 1  ^
+21 / 2 = 10 R 1  |
+10 / 2 =  5 R 0  |
+ 5 / 2 =  2 R 1  |
+ 2 / 2 =  1 R 0  |
+ 1 / 2 =  0 R 1  |
+Ans: 101011_2
+\end{verbatim}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Binary $\rightarrow$ Decimal]
+\textbf{Rule:} Use place values ($...16, 8, 4, 2, 1$). \\
+\textbf{Ex: Convert $101011_2$ to Decimal}
+\begin{verbatim}
+  1   0   1   0   1   1
+  x   x   x   x   x   x
+ 32 + 0 + 8 + 0 + 2 + 1 = 43_10
+\end{verbatim}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Binary $\leftrightarrow$ Octal \& Hex]
+\textbf{Rule:} Group bits from right (3 for Oct, 4 for Hex).
+\begin{itemize}
+    \item \textbf{Binary to Octal: $101110_2$}
+    \begin{itemize}
+        \item \texttt{101 | 110 $\rightarrow$ 5 | 6 $\rightarrow$ $56_8$}
+    \end{itemize}
+    \item \textbf{Binary to Hex: $10111110_2$}
+    \begin{itemize}
+        \item \texttt{1011 | 1110 $\rightarrow$ B | E $\rightarrow$ $\text{BE}_{16}$}
+    \end{itemize}
+    \item \textbf{Hex to Binary: $2\text{A}_16$}
+     \begin{itemize}
+        \item \texttt{2 | A $\rightarrow$ 0010 | 1010 $\rightarrow$ $00101010_2$}
+    \end{itemize}
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Decimal $\rightarrow$ Binary (Fraction)]
+\textbf{Rule:} Multiply fraction by 2, read integer parts down. \\
+\textbf{Ex: Convert $0.8125_{10}$ to Binary}
+\begin{verbatim}
+0.8125 * 2 = 1.625  (1) |
+0.625  * 2 = 1.25   (1) |
+0.25   * 2 = 0.5    (0) v
+0.5    * 2 = 1.0    (1)
+Ans: 0.1101_2
+\end{verbatim}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=2's Complement Example: -45 in 8-bit]
+\begin{enumerate}
+    \item \textbf{Positive (+45):} \texttt{00101101}
+    \item \textbf{One's Complement:} \texttt{11010010} (Flip all bits)
+    \item \textbf{Two's Complement:} \texttt{11010011} (Add 1 to result)
+\end{enumerate}
+\end{tcolorbox}
+
+\end{multicols}
+\end{document}
