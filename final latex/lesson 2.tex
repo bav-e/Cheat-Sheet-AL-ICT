@@ -1,0 +1,216 @@
+% ====================================================================
+% A/L ICT - Lesson 2: Computer Architecture & Evolution (Compact & Fixed)
+% Optimized for A4 B&W Printing, Single Page
+% Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=0.9cm, top=1cm, bottom=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}
+\usepackage[svgnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+% --- Font Setup (Using two different fonts for visual variety) ---
+\usepackage{fontspec}
+\setmainfont{Inter}[
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic
+]
+\newfontfamily{\headingfont}{Montserrat}[
+  UprightFont = *-SemiBold,
+  BoldFont = *-Bold
+]
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling (Reduced Spacing) ---
+\newcommand{\sectionheading}[1]{%
+  \par\vspace{0.6em} % Reduced space before the heading
+  {\headingfont\fontsize{10.5pt}{11.5pt}\selectfont\color{black}#1}\par\nopagebreak
+  \rule{\linewidth}{0.4pt}\vspace{0.2em}\nopagebreak
+}
+\newcommand{\subsectionheading}[1]{%
+  \par\vspace{0.3em}\nopagebreak
+  {\headingfont\fontsize{9pt}{10pt}\selectfont\color{black!80}#1}\par\nopagebreak\vspace{-0.3em}
+}
+
+% --- tcolorbox configuration for B&W printing ---
+\tcbset{
+  colback=white, colframe=black, boxrule=0.5pt,
+  sharp corners, boxsep=3pt, left=3pt, right=3pt, top=3pt, bottom=3pt,
+  fonttitle=\bfseries
+}
+
+% --- List configuration for variety and compactness ---
+\setlist[itemize,1]{leftmargin=*, noitemsep, topsep=1.5pt, label=\textbullet}
+\setlist[itemize,2]{leftmargin=*, noitemsep, topsep=1pt, label=--}
+\setlist[itemize,3]{leftmargin=*, noitemsep, topsep=1pt, label=$\rightarrow$}
+
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty}
+
+% --- Title ---
+\begin{center}
+    {\headingfont\fontsize{12pt}{14pt}\selectfont \textbf{Lesson 2: Computer Architecture \& Evolution}}
+\end{center}
+\vspace{-0.8em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. Evolution of Computing}
+\subsectionheading{Early Calculating Aids}
+\begin{itemize}
+    \item \textbf{Pre-Mechanical:} Abacus (BC 5000).
+    \item \textbf{Mechanical Era (1450-1840):}
+        \begin{itemize}
+            \item Pascaline (1642) - Add/Subtract.
+            \item Stepped Reckoner (1694) - Add/Sub/Mul/Div.
+            \item Difference Engine (1880) - by \textbf{Charles Babbage}, "Father of the Computer".
+        \end{itemize}
+    \item \textbf{Electro-Mechanical (1840-1940):} Mark I (1939).
+\end{itemize}
+
+\subsectionheading{Computer Generations}
+\begin{itemize}
+    \item \textbf{1G (1940-56):} Vacuum Tubes. \textit{e.g., ENIAC, EDVAC}.
+    \item \textbf{2G (1956-63):} Transistors. \textit{e.g., IBM 1620}.
+    \item \textbf{3G (1964-75):} Integrated Circuits (ICs). \textit{e.g., IBM-360}.
+    \item \textbf{4G (1975-89):} VLSI Microprocessors.
+    \item \textbf{5G (1989-Now):} ULSI \& AI. \textit{e.g., Laptops, Desktops}.
+\end{itemize}
+
+\subsectionheading{Computer Classification}
+\begin{itemize}
+    \item \textbf{By Technology:} Analog $\leftrightarrow$ Digital.
+    \item \textbf{By Purpose:} Special $\leftrightarrow$ General.
+    \item \textbf{By Size:} Supercomputer, Mainframe, Mini, Micro.
+        \begin{itemize}
+            \item \textbf{Modern Portables:} Smartphone, Tablet, Phablet.
+        \end{itemize}
+\end{itemize}
+
+\sectionheading{2. Hardware \& Interfaces}
+\subsectionheading{Input Devices}
+\begin{itemize}
+    \item \textbf{Keyboard Entry:} Manual key presses.
+    \item \textbf{Direct Entry:} Automated data capture.
+        \begin{itemize}
+            \item \textbf{Advantages:} Faster, more accurate (less human error), lower data entry cost.
+            \item \textbf{Examples:} Mouse, Scanner, Barcode Reader, Smart Card Reader, Mic, Graphic Tablet, Webcam.
+        \end{itemize}
+\end{itemize}
+\subsectionheading{Output Devices}
+\begin{itemize}
+    \item \textbf{Monitors:} CRT, LCD/TFT, LED.
+    \item \textbf{Printers:} Dot Matrix (Impact), Inkjet, Laser, 3D.
+    \item \textbf{Other:} Plotter, Speakers.
+\end{itemize}
+
+\subsectionheading{CPU \& Motherboard Compatibility}
+\begin{itemize}
+    \item \textbf{Socket:} CPU must match the physical socket.
+    \item \textbf{Chipset:} The board's "traffic controller" must support the CPU.
+    \item \textbf{Wattage (TDP):} Motherboard must supply enough power for CPU.
+    \item \textbf{BIOS:} Startup software may need an update for newer CPUs.
+\end{itemize}
+
+\columnbreak % End Column 1, Start Column 2
+
+\sectionheading{3. Von-Neumann Architecture}
+\begin{tcolorbox}[title=Core Concepts, boxsep=2pt, top=2pt, bottom=2pt]
+\begin{itemize}
+    \item \textbf{Stored Program Concept:} Instructions and data are stored in the same memory and can be fetched.
+    \item \textbf{Fetch-Execute Cycle:} CPU's rhythm: \textbf{Fetch} instruction $\rightarrow$ \textbf{Decode} it $\rightarrow$ \textbf{Execute} it.
+\end{itemize}
+\end{tcolorbox}
+\subsectionheading{Main Components \& Buses}
+\begin{itemize}
+    \item \textbf{CPU (Processor):}
+        \begin{itemize}
+            \item \textbf{Control Unit (CU):} Directs operations.
+            \item \textbf{ALU:} Performs arithmetic \& logic.
+            \item \textbf{Registers:} Tiny, ultra-fast storage inside CPU.
+        \end{itemize}
+    \item \textbf{Main Memory (RAM):} Stores active programs and data.
+    \item \textbf{I/O Devices:} Input and Output hardware.
+    \item \textbf{Buses (The Highways):}
+        \begin{itemize}
+            \item \textbf{Data Bus:} Carries the actual data.
+            \item \textbf{Address Bus:} Carries memory addresses.
+            \item \textbf{Control Bus:} Carries commands from the CU.
+        \end{itemize}
+\end{itemize}
+\subsectionheading{Advanced CPU Concepts}
+\begin{itemize}
+    \item \textbf{Multi-core Processors:} Multiple "cores" (CPUs) on a single chip.
+    \begin{itemize}
+        \item \textbf{Need:} To run multiple instructions/tasks simultaneously (parallelism) for higher performance.
+    \end{itemize}
+    \item \textbf{Parallel Computing:} One task split into pieces, solved at the same time on multiple processors.
+    \item \textbf{Grid Computing:} Many loosely connected computers work on a common goal, forming a "virtual supercomputer".
+\end{itemize}
+
+\sectionheading{4. The Memory System}
+\subsectionheading{Memory Hierarchy (Top to Bottom)}
+\begin{itemize}
+    \item[\textbf{1.}] \textbf{Registers:} Fastest, smallest, in CPU.
+    \item[\textbf{2.}] \textbf{Cache (L1/L2/L3):} Fast buffer. L1 is fastest, on-chip.
+    \item[\textbf{3.}] \textbf{RAM (Main Memory):} Slower, larger, volatile.
+    \item[\textbf{4.}] \textbf{Secondary Storage:} Slowest, largest, non-volatile.
+\end{itemize}
+\vspace{0.3em}
+\subsectionheading{Characteristics \& Types}
+\begin{itemize}
+    \item \textbf{Comparison Criteria:} Access Time, Cost/Bit, Capacity, Physical Type, Access Method (Sequential/Random).
+    \item \textbf{Volatility:}
+        \begin{itemize}
+            \item \textbf{Volatile} : Loses data when power is off. \textit{e.g., RAM, Cache, Registers}.
+            \item \textbf{Non-Volatile} : Retains data without power. \textit{e.g., ROM, HDD, SSD}.
+        \end{itemize}
+\end{itemize}
+
+\subsectionheading{RAM, ROM \& Cache Details}
+\begin{itemize}
+    \item \textbf{RAM Types:}
+        \begin{itemize}
+            \item \textbf{SRAM} (Static): Faster, no refresh needed. Used for Cache.
+            \item \textbf{DRAM} (Dynamic): Slower, needs refreshing. Used for Main Memory.
+        \end{itemize}
+    \item \textbf{ROM Types:}
+        \begin{itemize}
+            \item \textbf{PROM} (Programmable): Write-once.
+            \item \textbf{EPROM} (Erasable): Erase with UV light.
+            \item \textbf{EEPROM} (Elec. Erasable): Erase with electricity. \textit{e.g., Flash Memory}.
+        \end{itemize}
+\end{itemize}
+\subsectionheading{Secondary Storage}
+\begin{itemize}
+    \item \textbf{By Technology:}
+        \begin{itemize}
+            \item \textbf{Magnetic:} HDD, Tape (Sequential access).
+            \item \textbf{Optical:} CD (~700MB), DVD (~4.7GB), Blu-Ray (25GB+).
+            \item \textbf{Solid-State (SSS):} SSD, Flash Drive (no moving parts, faster, less heat).
+        \end{itemize}
+    \item \textbf{By Access Method:}
+        \begin{itemize}
+            \item \textbf{Sequential:} Read in order (e.g., Tape).
+            \item \textbf{Random:} Jump directly to data (e.g., HDD, SSD).
+        \end{itemize}
+\end{itemize}
+
+\end{multicols}
+\end{document}
