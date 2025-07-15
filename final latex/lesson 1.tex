@@ -1,0 +1,238 @@
+% ====================================================================
+% A/L ICT - Lesson 1: Core ICT Concepts Cheat Sheet (Improved Version)
+% Optimized for A4 B&W Printing, Single Page
+% Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins (Crucial for fitting content) ---
+\usepackage[a4paper, margin=1cm, top=1.2cm, bottom=1.2cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (used for black/gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{amssymb}         % For symbols like checkmark
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+% Command for main section headings with a line underneath
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+% Command for subsection headings
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+
+% --- tcolorbox configuration for B&W printing ---
+% No background color (colback=white), only a thin black frame
+\tcbset{
+  colback=white, colframe=black, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+
+% --- List configuration for compactness ---
+% No extra space between list items
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=2pt, label=\textbullet}
+\setlist[enumerate]{leftmargin=*, noitemsep, topsep=2pt}
+
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{A/L ICT | Lesson 1: ICT concepts}
+\end{center}
+\vspace{0.5em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. Data, Information \& Technology}
+\vspace{0.5em}
+\subsectionheading{Data, Information, Knowledge}
+\begin{itemize}
+    \item \textbf{Data:} Raw, unorganized facts. \textit{(e.g., 19, 25, 22)}.
+    \item \textbf{Information:} Processed, meaningful data. \textit{(e.g., "The average temperature is 22°C")}.
+    \item \textit{Note: One system's Information can be another's Data.}
+    \item \textbf{Data Types:}
+        \begin{itemize}
+            \item \textbf{Quantitative:} Numerical, measurable. \textit{(e.g., Marks)}.
+            \item \textbf{Qualitative:} Descriptive, non-numerical. \textit{(e.g., Goodwill)}.
+        \end{itemize}
+    \item \textbf{Data Life Cycle:} Creation $\rightarrow$ Management $\rightarrow$ Removal.
+\end{itemize}
+
+\subsectionheading{Value of Information}
+\begin{itemize}
+    \item \textbf{Characteristics:} Accurate, Complete, Timely, Relevant, Understandable.
+    \item \textbf{Golden Rule:} Value is highest at creation, decreases over time.
+    \item \textbf{Big Data:} Extremely large data sets requiring advanced tools for analysis.
+\end{itemize}
+
+\subsectionheading{Need for Technology}
+\begin{itemize}
+    \item \textbf{Manual Processing Drawbacks:} Slow, error-prone, inconsistent data, poor sharing.
+    \item \textbf{Internet:} Global "network of networks". Uses \texttt{TCP/IP} protocol.
+    \begin{itemize}
+        \item \textbf{Services:} WWW, Email, FTP, Telnet, VoIP, etc.
+    \end{itemize}
+    \item \textbf{Mobile Tech:}
+        \begin{itemize}
+            \item \textbf{Communication:} Wireless data/voice transmission.
+            \item \textbf{Computing:} Using devices without a fixed physical link.
+        \end{itemize}
+    \item \textbf{Cloud Computing:} Online access to shared computing resources.
+    \begin{itemize}
+        \item \textbf{IaaS:} Rent infrastructure. \textit {(Land  \& Bricks)}.
+        \item \textbf{PaaS:} Rent a platform. \textit{(Workshop)}.
+        \item \textbf{SaaS:} Rent software. \textit{(Finished Product)}.
+    \end{itemize}
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{2. The Computer System}
+\vspace{0.5em}
+\begin{tcolorbox}[title=\textbf{System Definition}]
+An interrelated set of components working together to achieve a common objective. \textbf{Model:} Input $\rightarrow$ Process $\rightarrow$ Output.
+\end{tcolorbox}
+\subsectionheading{System Components}
+\begin{itemize}
+    \item \textbf{Hardware:} Physical parts. (Input, Output, CPU, Memory).
+    \item \textbf{Software:} Instructions. (System, Application).
+    \item \textbf{Firmware:} Software embedded in hardware. \textit{(e.g., BIOS)}.
+    \item \textbf{Liveware:} The human user.
+\end{itemize}
+\subsectionheading{Hardware Details}
+\begin{itemize}
+    \item \textbf{Processing:} CPU (main brain), GPU (graphics brain).
+    \item \textbf{Memory Hierarchy:}
+        \begin{itemize}
+            \item \textbf{Cache:} CPU's ultra-fast notepad.
+            \item \textbf{RAM (Primary):} Temp workspace, \textbf{Volatile}.
+            \item \textbf{Secondary:} Permanent storage, \textbf{Non-volatile}.
+        \end{itemize}
+    \item \textbf{Networking:} NIC, Switch, Router, Gateway, Bridge.
+\end{itemize}
+\subsectionheading{Software Details}
+\begin{itemize}
+    \item \textbf{System Software:} Manages the computer.
+        \begin{itemize}
+            \item \textbf{Operating System (OS):} e.g., Windows, Linux.
+            \item \textbf{Utilities:} e.g., Antivirus, Disk Tools.
+            \item \textbf{Language Translators:} Compiler, Interpreter.
+        \end{itemize}
+    \item \textbf{Application Software:} User-task oriented. \textit{(e.g., Word)}.
+    \item \textbf{Software Licensing:}
+        \begin{itemize}
+            \item \textbf{Proprietary:} Secret recipe. Limited rights.
+            \item \textbf{FOSS (Open Source):} Public recipe. Free to use, modify, share.
+        \end{itemize}
+\end{itemize}
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{3. Data Processing In Action}
+\vspace{0.5em}
+\begin{tcolorbox}[title=\textbf{Data Processing Cycle}]
+Gathering $\rightarrow$ Validation $\rightarrow$ Processing $\rightarrow$ Output $\rightarrow$ Storage
+\end{tcolorbox}
+\subsectionheading{Gathering \& Input}
+\begin{itemize}
+    \item \textbf{Manual Methods:} Interviews, Questionnaires, Observation.
+    \item \textbf{Automated Tools:}
+        \begin{itemize}
+            \item \textbf{OMR:} Reads pencil marks. \textit{(MCQ Sheets)}.
+            \item \textbf{OCR:} Converts image text to editable text.
+            \item \textbf{MICR:} Reads magnetic ink. \textit{(Bank Cheques)}.
+            \item \textbf{Other:} Barcode Readers, RFID, Sensors.
+        \end{itemize}
+    \item \textbf{Input Modes:}
+        \begin{itemize}
+            \item \textbf{Online:} Data entered as transaction happens.
+            \item \textbf{Offline:} Data collected, entered later in a batch.
+        \end{itemize}
+\end{itemize}
+\subsectionheading{Validation (Data Quality Check)}
+\begin{itemize}
+    \item \textbf{Range Check:} Is value within limits? (e.g., 0-100).
+    \item \textbf{Presence Check:} Is required field empty?
+    \item \textbf{Type Check:} Is it the correct data type (number/text)?
+\end{itemize}
+\subsectionheading{Processing, Output \& Storage}
+\begin{itemize}
+    \item \textbf{Processing Modes:}
+        \begin{itemize}
+            \item \textbf{Batch:} Collect all data, process in one go. \textit{(e.g., Payroll)}.
+            \item \textbf{Real-time:} Instant processing. \textit{(e.g., ATM transaction)}.
+        \end{itemize}
+    \item \textbf{Output Methods:}
+        \begin{itemize}
+            \item Direct presentation (Monitor, Printer).
+            \item Storing for further processing.
+        \end{itemize}
+    \item \textbf{Storage Methods:}
+        \begin{itemize}
+            \item \textbf{Local/Remote:} On-site vs. Cloud.
+            \item \textbf{Short/Long-term:} RAM vs. Hard Drive.
+        \end{itemize}
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{4. ICT's Role \& Impact on Society}
+\vspace{0.5em}
+\subsectionheading{Applications of ICT}
+\begin{itemize}
+    \item \textbf{Education:} E-learning, CBE (Computer-Based Ed.).
+    \item \textbf{Healthcare:} Diagnostics (ECG, CT), Patient records.
+    \item \textbf{Agriculture:} Greenhouse control, RFID for livestock.
+    \item \textbf{Business/Finance:} Banking (ATM), Payroll, Stock Mgt.
+    \item \textbf{Engineering:} CAD (Design), CAM (Manufacturing).
+    \item \textbf{Media:} Digital content creation, Global news access.
+    \item \textbf{Law Enforcement:} CCTV analysis, GPS tracking.
+\end{itemize}
+
+\subsectionheading{Societal Impact}
+\begin{itemize}
+    \item \textbf{Benefits:} Economic growth, Global connectivity, Improved efficiency, Access to information.
+    \item \textbf{Issues:}
+        \begin{itemize}
+            \item \textbf{Digital Divide:} "Haves" vs. "Have-nots" of tech access.
+            \item \textbf{E-waste:} Discarded electronics. Solution: \textbf{Green Computing} (eco-friendly ICT use \& disposal).
+        \end{itemize}
+\end{itemize}
+
+\subsectionheading{Ethical \& Legal Issues (The "Don'ts")}
+\begin{itemize}
+    \item \textbf{Confidentiality:} Keep data secret. Use passwords, encryption.
+    \item \textbf{Privacy:} Right to control one's personal information.
+    \item \textbf{Intellectual Property:} Legal ownership of creations.
+        \begin{itemize}
+            \item \textbf{Copyright:} Protects original works (books, music, code).
+            \item \textbf{Piracy:} Illegal copying/distribution of copyrighted material.
+            \item \textbf{Plagiarism:} Using someone's work as your own.
+        \end{itemize}
+    \item \textbf{Security Threats:}
+        \begin{itemize}
+            \item \textbf{Phishing:} Fake login pages to steal credentials.
+        \end{itemize}
+    \item \textbf{Netiquette:} "Network Etiquette". Good manners online.
+\end{itemize}
+
+\end{multicols}
+\end{document}
