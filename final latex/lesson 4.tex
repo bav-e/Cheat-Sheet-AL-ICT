@@ -1,0 +1,247 @@
+% ====================================================================
+% A/L ICT - Lesson 4: Logic Gates & Boolean Algebra (Enhanced Readability)
+% Optimized for A4 B&W Printing, Single Page
+% Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=0.9cm, top=1cm, bottom=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}
+\usepackage[svgnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tabularx}
+
+% --- Font Setup ---
+\usepackage{fontspec}
+\setmainfont{Inter}[
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic
+]
+\newfontfamily{\headingfont}{Montserrat}[
+  UprightFont = *-SemiBold,
+  BoldFont = *-Bold
+]
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{%
+  \par\vspace{0.7em}
+  {\headingfont\fontsize{10.5pt}{11.5pt}\selectfont\color{black}#1}\par\nopagebreak
+  \rule{\linewidth}{0.4pt}\vspace{0.2em}\nopagebreak
+}
+\newcommand{\subsectionheading}[1]{%
+  \par\vspace{0.4em}\nopagebreak
+  {\headingfont\fontsize{9pt}{10pt}\selectfont\color{black!80}#1}\par\nopagebreak\vspace{-0.3em}
+}
+
+% --- tcolorbox configuration ---
+\tcbset{
+  colback=white, colframe=black, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=3pt, bottom=4pt, % Increased bottom boxsep
+  fonttitle=\bfseries\small,
+  arc=1mm
+}
+
+% --- List configuration ---
+\setlist[itemize,1]{leftmargin=*, noitemsep, topsep=1.5pt, label=\textbullet}
+\setlist[itemize,2]{leftmargin=*, noitemsep, topsep=1pt, label=--}
+\setlist[enumerate,1]{leftmargin=*, noitemsep, topsep=2pt}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty}
+
+% --- Title ---
+\begin{center}
+    {\headingfont\fontsize{12pt}{14pt}\selectfont \textbf{Lesson 4: Logic Gates \& Boolean Algebra}}
+\end{center}
+\vspace{-0.8em}
+
+% --- Main 3-Column Layout ---
+\begin{multicols}{3}
+
+% =============================================
+% --- COLUMN 1: GATES & BOOLEAN LAWS ---
+% =============================================
+
+\sectionheading{1. Logic Gates}
+\subsectionheading{Gate Lexicon}
+\begin{tcolorbox}
+\renewcommand{\arraystretch}{1.3} % Increase row spacing in table
+\begin{tabularx}{\linewidth}{l X X}
+\textbf{Gate} & \textbf{Expression} & \textbf{Output is 1 when...} \\
+\hline
+NOT  & $L = \overline{A}$ & input is 0. \\ \hline
+AND  & $L = A \cdot B$ & all inputs are 1. \\ \hline
+OR   & $L = A + B$ & at least one input is 1. \\ \hline
+NAND & $L = \overline{A \cdot B}$ & any input is 0. \\ \hline
+NOR  & $L = \overline{A + B}$ & all inputs are 0. \\ \hline
+XOR  & $L = A \oplus B$ & inputs are different. \\ \hline
+XNOR & $L = \overline{A \oplus B}$ & inputs are the same. \\
+\end{tabularx}
+\end{tcolorbox}
+
+\subsectionheading{Universal Gates (NAND \& NOR)}
+\begin{itemize}
+    \item \textbf{Why universal?} Any logic gate can be constructed using only NAND gates or only NOR gates. This makes manufacturing ICs cheaper and simpler.
+\end{itemize}
+\begin{tcolorbox}[title=Implementations with NAND]
+\begin{itemize}
+    \item \textbf{NOT A} = $(A \cdot A)'$
+    \item \textbf{A AND B} = $((A \cdot B)')'$
+    \item \textbf{A OR B} = $(A' \cdot B')'$
+\end{itemize}
+\end{tcolorbox}
+
+\sectionheading{2. Boolean Algebra}
+\subsectionheading{Key Laws \& Theorems}
+\begin{itemize}
+    \item \textbf{Identity:} $A+0=A$ , $A \cdot 1=A$
+    \item \textbf{Complement:} $A+\overline{A}=1$ , $A \cdot \overline{A}=0$
+    \item \textbf{Commutative:} $A+B=B+A$
+    \item \textbf{Associative:} $A+(B+C)=(A+B)+C$
+    \item \textbf{Distributive:} $A(B+C)=AB+AC$
+    \item \textbf{De Morgan's:}
+    \begin{itemize}
+        \item $\overline{A \cdot B} = \overline{A} + \overline{B}$
+        \item $\overline{A+B} = \overline{A} \cdot \overline{B}$
+    \end{itemize}
+    \item \textbf{Redundancy:} $A+\overline{A}B=A+B$
+\end{itemize}
+
+\columnbreak
+
+% =============================================
+% --- COLUMN 2: SIMPLIFICATION ---
+% =============================================
+
+\sectionheading{3. Standard Forms}
+\subsectionheading{SOP \& POS}
+\begin{itemize}
+    \item \textbf{SOP (Sum of Products):} Sum of AND terms (Minterms). Derived from rows where output is \textbf{1}.
+    \begin{itemize}
+        \item \textit{Ex: $F = \overline{A}BC + A\overline{B}C$}
+    \end{itemize}
+    \item \textbf{POS (Product of Sums):} Product of OR terms (Maxterms). Derived from rows where output is \textbf{0}.
+     \begin{itemize}
+        \item \textit{Ex: $F = (A+B+C)(A+\overline{B}+C)$}
+    \end{itemize}
+\end{itemize}
+
+\begin{tcolorbox}[title=Deriving SOP from a Truth Table]
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccc|c|l}
+\textbf{A} & \textbf{B} & \textbf{C} & \textbf{F} & \textbf{Minterm} \\
+\hline
+0 & 0 & 0 & 0 & \\ \hline
+0 & 0 & 1 & \textbf{1} & $\rightarrow \overline{A}\overline{B}C$ \\ \hline
+0 & 1 & 0 & 0 & \\ \hline
+0 & 1 & 1 & \textbf{1} & $\rightarrow \overline{A}BC$ \\ \hline
+... & ... & ... & ... &
+\end{tabular} \\
+\vspace{0.5em}
+\textbf{SOP Expression:} $F = \overline{A}\overline{B}C + \overline{A}BC$
+\end{tcolorbox}
+
+\sectionheading{4. Karnaugh Maps (K-Maps)}
+\subsectionheading{Simplification Rules}
+\begin{enumerate}
+    \item Group only 1s, never 0s.
+    \item Groups must be rectangular \& contain a power of 2 number of cells (1, 2, 4, 8...).
+    \item No diagonal groups.
+    \item Make groups as large as possible.
+    \item Groups can overlap. Wrap-around is allowed.
+    \item Use the fewest number of groups possible.
+\end{enumerate}
+
+\begin{tcolorbox}[title=3-Variable K-Map Example]
+\textbf{Simplify $F = \overline{A}\overline{B}C + \overline{A}BC + A\overline{B}\overline{C} + A\overline{B}C$}
+\begin{enumerate}
+    \item \textbf{Map the 1s:}
+    
+    \begin{tabular}{r|c|c|c|c|}
+      & \multicolumn{4}{c}{AB} \\
+      \cline{2-5}
+      C & 00 & 01 & 11 & 10 \\
+      \cline{2-5}
+      0 & & & & \textbf{1} \\
+      \cline{2-5}
+      1 & \textbf{1} & \textbf{1} & & \textbf{1} \\
+      \cline{2-5}
+    \end{tabular}
+    
+    \item \textbf{Group the 1s:}
+    Two groups are made.
+    \begin{itemize}
+        \item Group 1 (Green): The two 1s in column AB=10. This simplifies to $A\overline{B}$.
+        \item Group 2 (Blue): The two 1s in row C=1, columns AB=00 and AB=01. This simplifies to $\overline{A}C$.
+    \end{itemize}
+    \item \textbf{Final Expression:} $F = A\overline{B} + \overline{A}C$
+\end{enumerate}
+\end{tcolorbox}
+
+\columnbreak
+
+% =============================================
+% --- COLUMN 3: CIRCUITS & APPLICATIONS ---
+% =============================================
+
+\sectionheading{5. Circuit Types}
+\subsectionheading{Combinational vs. Sequential}
+\begin{itemize}
+    \item \textbf{Combinational Circuits:}
+        \begin{itemize}
+            \item Output depends \textbf{only} on the current inputs.
+            \item Has \textbf{no memory}.
+            \item \textit{Examples: Adders, Decoders.}
+        \end{itemize}
+    \item \textbf{Sequential Circuits:}
+        \begin{itemize}
+            \item Output depends on current inputs \textbf{and} past states.
+            \item Has \textbf{memory} to store past states.
+            \item Uses a \textbf{feedback loop} (output is fed back as an input).
+            \item \textit{Examples: Flip-Flops, Counters.}
+        \end{itemize}
+\end{itemize}
+
+\sectionheading{6. Practical Circuits}
+\subsectionheading{Adders}
+\begin{itemize}
+    \item \textbf{Half Adder:} Adds 2 bits.
+        \begin{itemize}
+            \item \textbf{Sum} $= A \oplus B$
+            \item \textbf{Carry} $= A \cdot B$
+        \end{itemize}
+    \item \textbf{Full Adder:} Adds 3 bits (A, B, $C_{in}$). Built with two Half Adders and an OR gate.
+        \begin{itemize}
+            \item \textbf{Sum} $= A \oplus B \oplus C_{in}$
+            \item \textbf{Carry Out} $= A \cdot B + C_{in}(A \oplus B)$
+        \end{itemize}
+\end{itemize}
+
+\subsectionheading{Memory}
+\begin{itemize}
+    \item \textbf{Flip-Flop:} The basic building block of memory. A sequential circuit that can \textbf{store} a single bit (0 or 1).
+    \item \textbf{RS Latch (Flip-Flop):} Simplest type, built with cross-coupled NAND or NOR gates. Has Set (S) and Reset (R) inputs.
+\end{itemize}
+
+\begin{tcolorbox}[title=Design Example: Simple Alarm]
+\textbf{Problem:} An alarm (F) should sound if a sensor (A) is triggered, but only if the system is armed (B) and the door is closed (C).
+\begin{enumerate}
+    \item \textbf{Truth Table:} The only time F=1 is when A=1, B=1, and C=1.
+    \item \textbf{Expression:} The SOP expression is simply the minterm for that one case: $F = A \cdot B \cdot C$.
+    \item \textbf{Circuit:} A single 3-input AND gate.
+\end{enumerate}
+\end{tcolorbox}
+
+\end{multicols}
+\end{document}
