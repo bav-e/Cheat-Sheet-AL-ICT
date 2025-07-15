@@ -1,0 +1,168 @@
+% ====================================================================
+% A/L ICT - Lesson 1: Core ICT Concepts Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Designed for use on Overleaf.com
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 1: Core ICT Concepts}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. Data, Information \& Technology}
+\vspace{0.5em}
+\subsectionheading{Data vs. Information}
+\begin{itemize}
+    \item \textbf{Data:} Raw facts. \textit{(Uncooked ingredients)}.
+    \item \textbf{Information:} Data with meaning. \textit{(The finished cake)}.
+    \item \textit{One system's Information can be another's Data.}
+    \item \textbf{Valuable Info is:} Timely, Accurate, Complete, Relevant.
+    \item \textbf{Big Data:} Google-scale data analysis.
+\end{itemize}
+
+\subsectionheading{The Need for Technology}
+\begin{itemize}
+    \item \textbf{Internet:} The global "network of networks".
+        \begin{itemize}
+            \item \textbf{TCP/IP:} Internet's Rulebook / Postal Service.
+            \item \textbf{Services:} WWW, FTP, Email, Telnet, etc.
+        \end{itemize}
+    \item \textbf{Cloud Computing:} Using someone else's computer online.
+        \begin{itemize}
+            \item \textbf{SaaS:} Rent their finished software.
+            \item \textbf{PaaS:} Rent their workshop.
+            \item \textbf{IaaS:} Rent their land \& raw materials.
+        \end{itemize}
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{2. The Computer System}
+\vspace{0.5em}
+\subsectionheading{Core Concepts}
+\begin{itemize}
+    \item \textbf{Abstract Model:} Input $\rightarrow$ Process $\rightarrow$ Output.
+    \item \textbf{Firmware:} Software built into hardware. \textit{(e.g., TV remote's brain)}.
+    \item \textbf{Liveware:} You, the human user.
+\end{itemize}
+\subsectionheading{Hardware (The physical parts)}
+\begin{itemize}
+    \item \textbf{Processing:} CPU (The main \textbf{Brain}), GPU (The \textbf{Graphics Brain}).
+    \item \textbf{Memory:}
+    \begin{itemize}
+        \item \textbf{Cache:} CPU's ultra-fast \textbf{Notepad}.
+        \item \textbf{RAM (Primary):} Temporary Workspace. \textbf{Volatile} (forgets when power is off).
+        \item \textbf{Secondary:} Filing Cabinet. \textbf{Non-volatile} (remembers always).
+    \end{itemize}
+    \item \textbf{Networking Hardware:} NIC, Hub, Switch, Router, Gateway.
+\end{itemize}
+\subsectionheading{Software (The instructions)}
+\begin{itemize}
+    \item \textbf{System Software:} Manages the computer (OS, Utilities).
+    \item \textbf{Application Software:} The "Apps" for tasks (Word, Chrome).
+    \item \textbf{Licensing:}
+    \begin{itemize}
+        \item \textbf{Proprietary:} A "Secret Recipe".
+        \item \textbf{FOSS (Open Source):} A "Public Recipe".
+    \end{itemize}
+\end{itemize}
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{3. Data Processing In Action}
+\vspace{0.5em}
+\begin{tcolorbox}[title=\textbf{The Cycle}]
+    Gathering $\rightarrow$ Validation $\rightarrow$ Processing $\rightarrow$ Output $\rightarrow$ Storage
+\end{tcolorbox}
+\subsectionheading{Gathering Methods}
+\begin{itemize}
+    \item \textbf{Manual:} Interviews, Questionnaires, Observation.
+    \item \textbf{Automated:}
+    \begin{itemize}
+        \item \textbf{OMR:} The "MCQ Answer Sheet Reader".
+        \item \textbf{OCR:} The "Image-to-Text Converter".
+        \item \textbf{MICR:} The "Bank Cheque Reader".
+    \end{itemize}
+\end{itemize}
+\subsectionheading{Validation (The "Data Quality Checkpoint")}
+\begin{itemize}
+    \item \textbf{Range Check:} Is the value within limits? (e.g., 0-100).
+    \item \textbf{Presence Check:} Is it empty?
+    \item \textbf{Type Check:} Is it a number or text?
+\end{itemize}
+\subsectionheading{Processing Modes}
+\begin{itemize}
+    \item \textbf{Batch:} "End-of-day" processing. Collect \& process in one go.
+    \item \textbf{Real-time:} "Instant" processing. Immediate response.
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{4. ICT's Role \& Impact on Society}
+\vspace{0.5em}
+\subsectionheading{Key Applications}
+\begin{itemize}
+    \item \textbf{CAD (Computer-Aided Design):} The "Engineer's Digital Drawing Board".
+    \item \textbf{RFID (Radio-Frequency Identification):} A "Wireless Barcode".
+\end{itemize}
+\subsectionheading{Key Societal Issues}
+\begin{itemize}
+    \item \textbf{Digital Divide:} The "Tech Haves vs. Tech Have-Nots".
+    \item \textbf{E-waste:} Discarded electronics.
+        \begin{itemize}
+            \item \textbf{Green Computing:} "Eco-Friendly Tech".
+        \end{itemize}
+\end{itemize}
+\subsectionheading{Ethical \& Legal Issues (The "Don'ts")}
+\begin{itemize}
+    \item \textbf{Piracy:} Stealing software/media.
+    \item \textbf{Plagiarism:} Copying someone's work.
+    \item \textbf{Phishing:} A "Fake Login" trap.
+    \item \textbf{Copyright / Intellectual Property:} Creator's legal ownership.
+    \item \textbf{Confidentiality:} Keeping data "Secret".
+    \item \textbf{Netiquette:} Internet Ethics / Good Manners.
+\end{itemize}
+
+\end{multicols}
+\end{document}

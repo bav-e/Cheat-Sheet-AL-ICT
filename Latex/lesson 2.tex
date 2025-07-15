@@ -1,0 +1,136 @@
+% ====================================================================
+% A/L ICT - Lesson 2: Computer Architecture & Evolution Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Based on the final revised plan.
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 2: Computer Architecture \& Evolution}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1 ---
+% =============================================
+
+\sectionheading{1. Evolution of Computing}
+\vspace{0.5em}
+\subsectionheading{Computer Generations}
+\begin{itemize}
+    \item \textbf{1G:} Vacuum Tubes (e.g., ENIAC)
+    \item \textbf{2G:} Transistors (e.g., IBM 1620)
+    \item \textbf{3G:} ICs - Integrated Circuits (e.g., IBM-360)
+    \item \textbf{4G:} VLSI - Very Large Scale Integration
+    \item \textbf{5G:} ULSI - Ultra Large Scale Integration \& AI
+\end{itemize}
+
+\subsectionheading{Computer Classification}
+\begin{itemize}
+    \item \textbf{By Technology:} Analog vs. Digital
+    \item \textbf{By Purpose:} Special vs. General
+    \item \textbf{By Size:} Supercomputer, Mainframe, Mini, Micro
+\end{itemize}
+\begin{tcolorbox}
+    \textbf{Pioneer:} Charles Babbage - Difference Engine, "Father of the Computer".
+\end{tcolorbox}
+
+\vspace{1em}
+\sectionheading{2. Hardware \& Interfaces}
+\vspace{0.5em}
+\subsectionheading{Input/Output Devices}
+\begin{itemize}
+    \item \textbf{Input:} Keyboard, Mouse, Scanner, Webcam, Smart Card Reader.
+    \item \textbf{Output:} Monitor (CRT, LCD, LED), Printer (Dot Matrix, Inkjet, Laser, 3D), Plotter.
+\end{itemize}
+\subsectionheading{CPU \& Motherboard Compatibility}
+\begin{itemize}
+    \item \textbf{Socket:} The physical connector.
+    \item \textbf{Chipset:} The motherboard's "traffic controller".
+    \item \textbf{Wattage (TDP):} Power needs vs. Power supply.
+    \item \textbf{BIOS:} The board's startup software.
+\end{itemize}
+\subsectionheading{Advanced Computing}
+\begin{itemize}
+    \item \textbf{Parallel:} One big task, broken into pieces, solved at the same time.
+    \item \textbf{Grid:} Many computers, one common goal. A "virtual supercomputer".
+\end{itemize}
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2 ---
+% =============================================
+
+\sectionheading{3. Von-Neumann Architecture}
+\vspace{0.5em}
+\begin{itemize}
+    \item \textbf{Core Concept:} Stored Program Concept (Instructions \& data in same memory).
+    \item \textbf{Main Components:} CPU (ALU, CU, Registers), Memory, I/O.
+    \item \textbf{Buses (The "Highways"):} Data Bus (carries data), Control Bus (carries commands).
+    \item \textbf{Fetch-Execute Cycle:} The CPU's rhythm: Fetch $\rightarrow$ Decode $\rightarrow$ Execute.
+    \item \textbf{Multi-core Processors:} Multiple "brains" (cores) in a single CPU chip.
+\end{itemize}
+
+\vspace{1em}
+\sectionheading{4. The Memory System}
+\vspace{0.5em}
+\subsectionheading{Memory Hierarchy (A Pyramid)}
+\begin{itemize}
+    \item \textbf{Top:} Registers (Fastest, Smallest, Most Expensive).
+    \item \textbf{Middle:} Cache (L1, L2, L3), RAM (Main Memory).
+    \item \textbf{Bottom:} Secondary Storage (Slowest, Largest, Cheapest).
+\end{itemize}
+\subsectionheading{Memory Types}
+\begin{itemize}
+    \item \textbf{Volatile:} Forgets when power is off (e.g., RAM, Cache).
+    \item \textbf{Non-volatile:} Remembers always (e.g., ROM, HDD, SSD).
+\end{itemize}
+\subsectionheading{RAM \& ROM Types}
+\begin{itemize}
+    \item \textbf{RAM:} SRAM (Static, for Cache), DRAM (Dynamic, for Main), SDRAM (Synchronous).
+    \item \textbf{ROM:} PROM (Write once), EPROM (Erase with UV), EEPROM (Erase with electricity, e.g., Flash Memory).
+\end{itemize}
+\subsectionheading{Secondary Storage}
+\begin{itemize}
+    \item \textbf{Technology:} Magnetic, Optical, Solid-State.
+    \item \textbf{Capacities:} CD (~700MB), DVD (~4.7GB), Blu-Ray (25GB+).
+    \item \textbf{Access Methods:} Sequential (like a cassette tape) vs. Random (like a CD track).
+\end{itemize}
+
+\end{multicols}
+\end{document}

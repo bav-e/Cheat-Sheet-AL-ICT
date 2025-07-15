@@ -1,0 +1,144 @@
+% ====================================================================
+% A/L ICT - Lesson 3: Data Representation & Logic Cheat Sheet
+% Optimized for A4 B&W Printing using LaTeX
+% Based on the "Two-Column" (Concepts & Rules) plan.
+% ====================================================================
+
+% --- Document Class & Packages ---
+\documentclass[a4paper, 8pt]{extarticle}
+
+% --- Geometry for Margins ---
+\usepackage[a4paper, margin=1cm]{geometry}
+
+% --- Essential Packages ---
+\usepackage{multicol}        % For creating multi-column layouts
+\usepackage[svgnames]{xcolor} % For colors (we'll use shades of gray)
+\usepackage{tcolorbox}       % For creating styled boxes
+\usepackage{enumitem}        % For customizing lists
+\usepackage{amsmath}         % For math symbols
+\usepackage{tabularx}        % For better tables
+
+% --- Font Setup (for a clean, modern look) ---
+\usepackage{fontspec}
+\setmainfont{Inter}
+\setmonofont{Roboto Mono}
+
+% --- Custom Commands for Styling ---
+\newcommand{\sectionheading}[1]{\large\textbf{#1}\par\noindent\rule{\linewidth}{0.4pt}}
+\newcommand{\subsectionheading}[1]{\normalsize\textbf{#1}}
+\tcbset{
+  colback=gray!10, colframe=gray!75, boxrule=0.5pt,
+  sharp corners, boxsep=4pt, left=4pt, right=4pt, top=4pt, bottom=4pt
+}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=3pt, label=\textbullet}
+
+% --- Start of the Document ---
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+
+% --- Title ---
+\begin{center}
+    \fontsize{12pt}{14pt}\selectfont
+    \textbf{Lesson 3: Data Representation \& Logic}
+\end{center}
+\vspace{1em}
+
+% --- Main 2-Column Layout ---
+\begin{multicols}{2}
+
+% =============================================
+% --- COLUMN 1: Concepts (The "Why") ---
+% =============================================
+
+\sectionheading{1. Concepts (The "Why")}
+\vspace{0.5em}
+
+\subsectionheading{Number Representation}
+\begin{itemize}
+    \item \textbf{Why different systems?} Binary is for computers; Octal/Hex are human-friendly shortcuts for long binary strings.
+    \item \textbf{Signed Integers (Showing +/-):}
+    \begin{itemize}
+        \item \textbf{Sign-Magnitude:} Left-most bit for sign (0=+, 1=-). \textit{Problem: Has two zeros (+0, -0).}
+        \item \textbf{One's Complement:} Flip all bits to negate. \textit{Problem: Also has two zeros.}
+        \item \textbf{Two's Complement:} Flip all bits + 1. \textit{The standard method used in computers (efficient hardware).}
+    \end{itemize}
+    \item \textbf{Fixed-point vs. Floating-point:}
+    \begin{itemize}
+        \item \textbf{Fixed-point:} For numbers with a fixed decimal place (like currency).
+        \item \textbf{Floating-point:} For scientific numbers (very large/small). Uses Mantissa \& Exponent.
+    \end{itemize}
+\end{itemize}
+
+\subsectionheading{Character Representation}
+\begin{itemize}
+    \item \textbf{BCD:} Represents only numbers 0-9.
+    \item \textbf{ASCII:} Early standard (7-bit, 128 chars). For English.
+    \item \textbf{EBCDIC:} IBM's version of ASCII (8-bit, 256 chars).
+    \item \textbf{Unicode:} Modern standard (16/32-bit). Represents all world languages.
+\end{itemize}
+
+\subsectionheading{Logic Operations}
+\begin{itemize}
+    \item \textbf{Bitwise Ops:} Applying logic to individual bits.
+    \begin{itemize}
+        \item \textbf{NOT:} Inverts a bit (0 $\leftrightarrow$ 1).
+        \item \textbf{AND:} Used for "Masking" (turning bits OFF).
+        \item \textbf{OR:} Used for "Setting" (turning bits ON).
+        \item \textbf{XOR:} Used for "Toggling/Flipping" bits.
+    \end{itemize}
+\end{itemize}
+
+
+\columnbreak % End Column 1, Start Column 2
+
+% =============================================
+% --- COLUMN 2: Rules & Examples (The "How") ---
+% =============================================
+\sectionheading{2. Rules \& Examples (The "How")}
+\vspace{0.5em}
+
+\subsectionheading{Number Conversions}
+\begin{itemize}
+    \item \textbf{Decimal $\rightarrow$ Binary:} Divide by 2, read remainders up. \newline \texttt{e.g., $13_{10} = 1101_2$}
+    \item \textbf{Binary $\rightarrow$ Decimal:} Use place values (8, 4, 2, 1). \newline \texttt{e.g., $1101_2 = 8+4+0+1 = 13_{10}$}
+    \item \textbf{Binary $\leftrightarrow$ Octal:} Group bits in 3s from the right. \newline \texttt{e.g., $101110_2 \leftrightarrow 56_8$}
+    \item \textbf{Binary $\leftrightarrow$ Hexadecimal:} Group bits in 4s from the right. \newline \texttt{e.g., $10111110_2 \leftrightarrow \text{BE}_{16}$}
+\end{itemize}
+
+\subsectionheading{Negative Number Examples}
+\begin{tcolorbox}[title=\textbf{Example: -45 in 8-bit}]
+\begin{itemize}
+    \item \textbf{Positive (+45):} \texttt{00101101}
+    \item \textbf{Sign-Magnitude:} \texttt{10101101}
+    \item \textbf{One's Complement:} \texttt{11010010}
+    \item \textbf{Two's Complement:} \texttt{11010011}
+\end{itemize}
+\end{tcolorbox}
+
+\subsectionheading{Binary Arithmetic \& Logic}
+\begin{itemize}
+    \item \textbf{Binary Addition Rules:}
+    \begin{itemize}
+        \item[] \texttt{0+0=0} \quad \texttt{0+1=1} \quad \texttt{1+0=1} \quad \texttt{1+1=0 (carry 1)}
+    \end{itemize}
+    \item \textbf{Binary Subtraction Rules:}
+    \begin{itemize}
+        \item[] \texttt{0-0=0} \quad \texttt{1-0=1} \quad \texttt{1-1=0} \quad \texttt{10-1=1 (borrow)}
+    \end{itemize}
+\end{itemize}
+\subsectionheading{Logic Truth Tables}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \textbf{A} & \textbf{B} & \textbf{A.B} & \textbf{A+B} & \textbf{A$\oplus$B} \\
+    \hline
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 1 & 1 \\
+    1 & 0 & 0 & 1 & 1 \\
+    1 & 1 & 1 & 1 & 0 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\end{multicols}
+\end{document}
